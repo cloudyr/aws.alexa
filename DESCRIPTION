@@ -1,0 +1,20 @@
+Package: aws.alexa
+Title: R Client for the Amazon Alexa API
+Version: 0.1.0
+Authors@R: person("Gaurav", "Sood", email = "gsood07@gmail.com", role = c("aut", "cre"))
+Description: Get the category of content hosted by a domain. Use shallalist,  
+    virustotal or McAfee APIs, or a validated ML classifier based on shallalist
+    data to get the category of content carried by a domain.
+Depends:
+    R (>= 3.2.5)
+Imports:
+    httr,
+    aws.signature
+Suggests:
+    testthat,
+    knitr (>= 1.11)
+VignetteBuilder: knitr
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 5.0.1
