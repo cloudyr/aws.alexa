@@ -50,7 +50,7 @@ function(query) {
 
 	res <- GET("http://awis.amazonaws.com",  query = sig$Query)
 	aws.alexa_check(res)
-	res <- xmlToList(content(res, as="text"))
+	res <- xmlToList(content(res, as="text", encoding="utf-8"))
 
 	res
 }

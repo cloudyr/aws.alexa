@@ -3,13 +3,14 @@
 #' @param url String; Required; valid url
 #' @param response_group String; Required; One of the following: RelatedLinks, Categories, Rank,  
 #' RankByCountry, UsageStats, AdultContent, Speed, Language,  OwnedDomains, LinksInCount, SiteData
+#' Default is 'SiteData'. Multiple fields can be passed. They must be separated by comma.
 #' 
 #' @return data.frame
 #'  
 #' @export
 #' @references \url{http://docs.aws.amazon.com/AlexaWebInfoService/latest/ApiReference_UrlInfoAction.html}
 #' @examples \dontrun{
-#' url_info(domain="http://www.google.com")
+#' url_info(url="http://www.google.com")
 #' }
 
 url_info <- function(url = NULL, response_group = "SiteData") {

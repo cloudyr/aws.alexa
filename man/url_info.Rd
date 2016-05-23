@@ -10,7 +10,8 @@ url_info(url = NULL, response_group = "SiteData")
 \item{url}{String; Required; valid url}
 
 \item{response_group}{String; Required; One of the following: RelatedLinks, Categories, Rank,
-RankByCountry, UsageStats, AdultContent, Speed, Language,  OwnedDomains, LinksInCount, SiteData}
+RankByCountry, UsageStats, AdultContent, Speed, Language,  OwnedDomains, LinksInCount, SiteData
+Default is 'SiteData'. Multiple fields can be passed. They must be separated by comma.}
 }
 \value{
 data.frame
@@ -20,7 +21,7 @@ Get Information about a URL
 }
 \examples{
 \dontrun{
-url_info(domain="http://www.google.com")
+url_info(url="http://www.google.com")
 }
 }
 \references{
