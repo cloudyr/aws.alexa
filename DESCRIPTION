@@ -9,7 +9,8 @@ Depends:
     R (>= 3.2.5)
 Imports:
     httr,
-    aws.signature
+    aws.signature,
+    XML
 Suggests:
     testthat,
     knitr (>= 1.11)

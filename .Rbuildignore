@@ -1,2 +1,7 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^\.travis\.yml$
+^appveyor\.yml$
+^dev$
+^cran-comments.md$
+^tests\testthat\aws.alexa_key.enc$
