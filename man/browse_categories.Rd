@@ -17,7 +17,7 @@ browse_categories(path = NULL, response_group = "Categories",
 \item{\dots}{Additional arguments passed to \code{\link{alexa_GET}}.}
 }
 \value{
-data.frame
+data.frame with 5 columns: path, title, sub_category_count, total_listing_count, description
 }
 \description{
 Uses data from \url{http://www.dmoz.org}
