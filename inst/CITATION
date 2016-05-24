@@ -1,15 +1,15 @@
-citHeader("To cite package 'abbyyR' in publications use:")
+citHeader("To cite package 'aws.alexa' in publications use:")
      
 year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date, perl = TRUE)
 vers <- paste("R package version", meta$Version)
  
 citEntry(entry="Manual",
-		  title = "abbyyR: Access Abbyy FineReader Cloud OCR API via R",
+		  title = "aws.alexa: R Client for the Alexa Web Information Services API.",
 		  author = personList(as.person("Gaurav SOod")),
 		  year = year,
 		  note = vers,
 		  textVersion =
 		  paste("Gaurav Sood (",
 				year,
-				"). abbyyR: Access Abbyy FineReader Cloud OCR API via R. ",
+				"). aws.alexa: R Client for the Alexa Web Information Services API.",
 				vers, ".", sep=""))

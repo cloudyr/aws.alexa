@@ -1,0 +1,34 @@
+---
+title: "Overview of aws.alexa"
+author: "Gaurav Sood"
+date: "`r Sys.Date()`"
+vignette: >
+  %\VignetteIndexEntry{Overview of aws.alexa}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+### Client for the Alexa Web Information Services API
+
+Find information about domains, including the kind of content that they carry, how popular are they, sites linking to them, among other things.
+
+The package provides access to the [Alexa Web Information Service API](http://docs.aws.amazon.com/AlexaWebInfoService/). 
+
+### Installation
+
+To get the current development version from github:
+
+```{r, eval=FALSE, install}
+# install.packages("devtools")
+devtools::install_github("cloudyr/aws.alexa", build_vignettes = TRUE)
+```
+
+### Usage
+
+To get going, get the application id and password from [https://console.aws.amazon.com/iam/home#security_credential](https://console.aws.amazon.com/iam/home#security_credential). Then set the application id and password via the `set_secret_key` function.
+
+```{r, eval=FALSE, setapp}
+set_secret_key(key="key", secret="secret")
+```
+
+#### 

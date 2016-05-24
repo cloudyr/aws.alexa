@@ -1,12 +1,10 @@
-#' @title aws.alexa: R Client for the Alexa Amazon Web Information Service API
+#' @title aws.alexa: R Client for the Alexa Web Information Services API
 #' 
 #' @name aws.alexa-package
 #' @aliases aws.alexa
 #'
-#' @description OCR images, barcodes, forms, documents with machine readable zones, e.g. passports, right from R.
-#' Get the results in any one of a wide variety of formats, from text to XML. 
-#' The package provides access to Abbyy Cloud OCR. For more information, see \url{http://ocrsdk.com/}. 
-#' Details about results of calls to the API can be found at \url{http://docs.aws.amazon.com/AlexaWebInfoService/latest/}.
+#' @description Find information about domains, including the kind of content that they carry, how popular are they, sites linking to them, among other things.
+#' The package provides access to the Alexa Web Information Service API: \url{http://docs.aws.amazon.com/AlexaWebInfoService/}. 
 #'
 #' To learn how to use aws.alexa, see this vignette: \url{vignettes/overview.html}. 
 #' 
