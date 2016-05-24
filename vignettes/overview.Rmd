@@ -31,4 +31,32 @@ To get going, get the application id and password from [https://console.aws.amaz
 set_secret_key(key="key", secret="secret")
 ```
 
-#### 
+#### URL Information 
+
+```{r, eval=FALSE, url_info}
+url_info("http://www.google.com")
+```
+
+#### Traffic History 
+
+```{r, eval=FALSE, traffic_hist}
+traffic_history("http://www.google.com")
+```
+
+#### Browse Categories 
+
+```{r, eval=FALSE, browse_cats}
+browse_categories(path="Top/Arts")
+```
+
+#### Category Listings
+
+```{r, eval=FALSE, cat_list}
+category_listing(path="Top/Arts")
+```
+
+#### In Links
+
+```{r, eval=FALSE, in_links}
+in_links(url="http://www.google.com")
+```
