@@ -15,6 +15,7 @@
 #' @importFrom stats setNames
 #' @importFrom httr GET content stop_for_status
 #' @importFrom XML  xmlToList
+#' @importFrom reshape2 dcast melt
 #' @importFrom aws.signature signature_v2_auth
 #' @docType package
 #' @author Gaurav Sood

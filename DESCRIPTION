@@ -8,7 +8,8 @@ Description: Find information about domains, including the kind of content that 
 Imports:
     httr,
     aws.signature,
-    XML
+    XML,
+    reshape2
 Suggests:
     testthat,
     rmarkdown,
