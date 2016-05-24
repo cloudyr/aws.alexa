@@ -9,7 +9,8 @@ Imports:
     httr,
     aws.signature,
     XML,
-    reshape2
+    reshape2,
+    plyr
 Suggests:
     testthat,
     rmarkdown,

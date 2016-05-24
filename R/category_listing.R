@@ -25,5 +25,5 @@ category_listing <- function(path = path, sort_by="Popularity", recursive = TRUE
 
    cat_list <- alexa_GET(query, ...)
 
-   cat_list
+   do.call(rbind.fill, lapply(cat_list[[2]][[1]][[1]][[3]], as.data.frame))
 }

@@ -6,7 +6,7 @@
 #' Default is 'SiteData'. Multiple fields can be passed. They must be separated by comma.
 #' @param \dots Additional arguments passed to \code{\link{alexa_GET}}.
 #' 
-#' @return data.frame
+#' @return data.frame with 5 columns: url, attribute, title, description, online_since
 #'  
 #' @export
 #' @references \url{http://docs.aws.amazon.com/AlexaWebInfoService/latest/ApiReference_UrlInfoAction.html}
@@ -23,8 +23,8 @@ url_info <- function(url = NULL, response_group = "SiteData", ...) {
    query <-  list(Action = "UrlInfo", Url = url, ResponseGroup=response_group)
    urlinfo_payload <- alexa_GET(query, ...)
     
-   urlinfo_ans <- dcast(cbind(coln = sequence(rapply(urlinfo_payload[[2]][[1]], length)), 
-							  melt(urlinfo_payload[[2]][[1]])), L1 + L2 + L3 ~ coln, 
-							  value.var = "value")
-   urlinfo_ans
+   res <- do.call(cbind, lapply(urlinfo_payload[[2]][[1]][[1]], as.data.frame))
+   dimnames(res) <- list(1:nrow(res),  c("url", "attribute", "title", "description", "online_since"))
+
+   res
 }
