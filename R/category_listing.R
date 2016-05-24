@@ -21,7 +21,7 @@
 category_listing <- function(path = path, sort_by="Popularity", recursive = TRUE, start = 0, count = 20, description = TRUE, ...) {
     
    query <-  list(Action = "CategoryListings", ResponseGroup="Listings", SortBy = sort_by, Path =  path, 
-   				  Start = start, Recursive = "True", Count = count, Descriptions = "True")
+   				  Start = start, Recursive = recursive, Count = count, Descriptions = description)
 
    cat_list <- alexa_GET(query, ...)
 
