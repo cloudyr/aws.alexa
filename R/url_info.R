@@ -16,7 +16,7 @@
 
 url_info <- function(url = NULL, response_group = "SiteData", ...) {
     
-   if (is.null(url)) {
+   if (!is.character(url)) {
         stop("Must specify url")
    }
    

@@ -4,7 +4,7 @@
 \alias{browse_categories}
 \title{Browse Categories}
 \usage{
-browse_categories(path = path, response_group = "Categories",
+browse_categories(path = NULL, response_group = "Categories",
   description = TRUE, ...)
 }
 \arguments{

@@ -6,7 +6,7 @@
 #' @param count Number of results to return for this request; Max = 20; Default = 20
 #' @param \dots Additional arguments passed to \code{\link{alexa_GET}}.
 #' 
-#' @return data.frame
+#' @return data.frame with two columns: title (site hostname) and url (specific url)
 #'  
 #' @export
 #' @references \url{http://docs.aws.amazon.com/AlexaWebInfoService/latest/ApiReference_SitesLinkingInAction.html}
@@ -15,11 +15,16 @@
 #' }
 
 in_links <- function(url = NULL, start = 0, count = 20, ...) {
-    
-   query <-  list(Action = "SitesLinkingIn", ResponseGroup="SitesLinkingIn", Url = url, Start = start, Count = count)
+   
+    if (!is.character(url)) {
+        stop("Must specify url")
+    }
 
-   insite_links_payload <- alexa_GET(query, ...)
+    query <-  list(Action = "SitesLinkingIn", ResponseGroup="SitesLinkingIn", Url = url, Start = start, Count = count)
 
-   do.call(rbind, insite_links_payload[[2]][[1]][[1]])
+    insite_links_payload <- alexa_GET(query, ...)
 
+    res <- do.call(rbind, lapply(insite_links_payload[[2]][[1]][[1]], unlist))
+    res_df <- as.data.frame(res, row.names=1:length(res))
+    names(res_df) <- c("title", "url")
 }

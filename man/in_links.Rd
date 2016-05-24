@@ -16,7 +16,7 @@ in_links(url = NULL, start = 0, count = 20, ...)
 \item{\dots}{Additional arguments passed to \code{\link{alexa_GET}}.}
 }
 \value{
-data.frame
+data.frame with two columns: title (site hostname) and url (specific url)
 }
 \description{
 Sites linking to the site

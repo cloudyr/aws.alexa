@@ -15,8 +15,19 @@
 #' browse_categories(path="Top/Arts")
 #' }
 
-browse_categories <- function(path = path, response_group = "Categories", description = TRUE, ...) {
+browse_categories <- function(path = NULL, response_group = "Categories", description = TRUE, ...) {
     
+    if (!is.character(path)) {
+        stop("Must specify valid path.")
+    }
+
+    if (!is.logical(description)) {
+   		stop("Provide a valid value for description.")
+    }
+
+    # Convert Boolean to String
+    description <- ifelse(description, 'True', 'False')
+
     query <-  list(Action = "CategoryBrowse", ResponseGroup=response_group, Path = path, Descriptions = description)
 
     browse_cat <- alexa_GET(query, ...)

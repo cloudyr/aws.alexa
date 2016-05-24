@@ -16,7 +16,7 @@
 
 traffic_history <- function(url = NULL, range=31, start=NULL, ...) {
     
-    if (is.null(url)) {
+    if (!is.character(url)) {
         stop("Must specify url")
     }
 
