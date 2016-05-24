@@ -1,6 +1,6 @@
-context("Get In Links")
+context("Get Traffic History")
 
-test_that("in_links works", {
+test_that("traffic_history works", {
   
   skip_on_cran()
 
@@ -11,6 +11,6 @@ test_that("in_links works", {
   secret <- unlist(strsplit(token, ","))[2]
   set_secret_key(key, secret)
   
-  links_dat <- in_links("google.com")
-  expect_that(links_dat, is_a("data.frame"))
+  traffic <- traffic_history("google.com")
+  expect_that(traffic, is_a("data.frame"))
 })

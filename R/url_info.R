@@ -21,16 +21,8 @@ url_info <- function(url = NULL, response_group = "SiteData", ...) {
    }
    
    query <-  list(Action = "UrlInfo", Url = url, ResponseGroup=response_group)
-   urlinfo <- alexa_GET(query, ...)
+   urlinfo_payload <- alexa_GET(query, ...)
     
-   urlinfo_payload <- urlinfo[[1]]
-   
-   urlinfo_request_id      <- urlinfo_payload$OperationRequest$RequestId
-   urlinfo_response_status <- urlinfo_payload$ResponseStatus$StatusCode
-
-   cat("Request ID: ", urlinfo_request_id, "\n")
-   cat("Response Status: ", urlinfo_response_status, "\n")
-
    urlinfo_ans <- dcast(cbind(coln = sequence(rapply(urlinfo_payload[[2]][[1]], length)), 
 							  melt(urlinfo_payload[[2]][[1]])), L1 + L2 + L3 ~ coln, 
 							  value.var = "value")

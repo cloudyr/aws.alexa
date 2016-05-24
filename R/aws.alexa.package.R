@@ -56,7 +56,23 @@ function(query, key = Sys.getenv("AWS_ACCESS_KEY_ID"), secret = Sys.getenv("AWS_
 	alexa_check(res)
 	res <- xmlToList(content(res, as="text", encoding="utf-8"))
 
-	res
+    result <- alexa_PROCESS(res)
+	result
+}
+
+#'
+#' Postprocess the results a bit
+#' 
+#' @param  res result
+#' @return display request ID and Response Status and the first member of the list 
+
+alexa_PROCESS <- 
+function(res) {
+
+   cat("Request ID: ", res[[1]]$OperationRequest$RequestId, "\n")
+   cat("Response Status: ", res[[1]]$ResponseStatus$StatusCode, "\n")
+
+   res[[1]]
 }
 
 #'

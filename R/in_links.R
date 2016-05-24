@@ -18,14 +18,8 @@ in_links <- function(url = NULL, start = 0, count = 20, ...) {
     
    query <-  list(Action = "SitesLinkingIn", ResponseGroup="SitesLinkingIn", Url = url, Start = start, Count = count)
 
-   insite_links <- alexa_GET(query, ...)
+   insite_links_payload <- alexa_GET(query, ...)
 
-   insite_links_request_id      <- insite_links[[1]]$OperationRequest$RequestId
-   insite_links_response_status <- insite_links[[1]]$ResponseStatus$StatusCode
-
-   cat("Request ID: ", insite_links_request_id, "\n")
-   cat("Response Status: ", insite_links_response_status, "\n")
-
-   do.call(rbind, insite_links[[1]][[2]][[1]][[1]])
+   do.call(rbind, insite_links_payload[[2]][[1]][[1]])
 
 }
