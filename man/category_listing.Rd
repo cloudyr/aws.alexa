@@ -4,7 +4,7 @@
 \alias{category_listing}
 \title{Category Listing}
 \usage{
-category_listing(path = path, sort_by = "Popularity", recursive = TRUE,
+category_listing(path = NULL, sort_by = "Popularity", recursive = TRUE,
   start = 0, count = 20, description = TRUE, ...)
 }
 \arguments{

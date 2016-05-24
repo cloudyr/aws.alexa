@@ -18,8 +18,24 @@
 #' category_listing(path="Top/Arts")
 #' }
 
-category_listing <- function(path = path, sort_by="Popularity", recursive = TRUE, start = 0, count = 20, description = TRUE, ...) {
+category_listing <- function(path = NULL, sort_by="Popularity", recursive = TRUE, start = 0, count = 20, description = TRUE, ...) {
     
+   if (!is.character(path)) {
+   	stop("Provide a valid value for path.")
+   }
+
+   if (!is.logical(recursive)) {
+   	stop("Provide a valid value for recursive.")
+   }
+
+   if (!is.logical(description)) {
+   	stop("Provide a valid value for description.")
+   }
+
+   # Convert Boolean to String
+   recursive   <- ifelse(recursive, 'True', 'False')
+   description <- ifelse(description, 'True', 'False')
+   
    query <-  list(Action = "CategoryListings", ResponseGroup="Listings", SortBy = sort_by, Path =  path, 
    				  Start = start, Recursive = recursive, Count = count, Descriptions = description)
 
