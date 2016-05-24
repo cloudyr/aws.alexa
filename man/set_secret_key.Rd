@@ -25,6 +25,6 @@ set_secret_key(key = "key", secret = "secret")
 }
 }
 \references{
-\url{https://console.aws.amazon.com/iam/home#security_credential}
+\url{https://aws.amazon.com/}
 }
 

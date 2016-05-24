@@ -9,7 +9,7 @@
 #' @param secret String; Required; Secret Access Key
 #' @param force String; Required; Force change the \code{AWS_ACCESS_KEY_ID} and \code{AWS_SECRET_ACCESS_KEY} stored in the environment
 #' @export
-#' @references \url{https://console.aws.amazon.com/iam/home#security_credential}
+#' @references \url{https://aws.amazon.com/}
 #'
 #' @examples \dontrun{
 #' set_secret_key(key = "key", secret = "secret")

@@ -7,12 +7,12 @@
 \title{aws.alexa: R Client for the Alexa Web Information Services API}
 \description{
 Find information about domains, including the kind of content that they carry, how popular are they, sites linking to them, among other things.
-The package provides access to the Alexa Web Information Service API: \url{http://docs.aws.amazon.com/AlexaWebInfoService/}. 
+The package provides access to the Alexa Web Information Service API: \url{http://docs.aws.amazon.com/AlexaWebInfoService/latest/}. 
 
 To learn how to use aws.alexa, see this vignette: \url{vignettes/overview.html}. 
 
 You need to get credentials (Access Key ID and Secret Access Key) to use this application. 
-If you haven't already, get these at \url{https://console.aws.amazon.com/iam/home#security_credential}. 
+If you haven't already, get these at \url{https://aws.amazon.com/}. 
 And set these using \code{\link{set_secret_key}}
 }
 \author{
