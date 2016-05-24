@@ -14,8 +14,7 @@
 #' 
 #' @importFrom stats setNames
 #' @importFrom httr GET content stop_for_status
-#' @importFrom XML  xmlToList
-#' @importFrom reshape2 dcast melt
+#' @importFrom xml2  as_list
 #' @importFrom plyr rbind.fill
 #' @importFrom aws.signature signature_v2_auth
 #' @docType package
@@ -38,24 +37,22 @@ NULL
 alexa_GET <- 
 function(query, key = Sys.getenv("AWS_ACCESS_KEY_ID"), secret = Sys.getenv("AWS_SECRET_ACCESS_KEY"), ...) {
 
-	app_id <- key
-    app_pass <- secret
-
-	if (identical(app_id, "") | identical(app_pass, "")) {
+	if (identical(key, "") | identical(secret, "")) {
         stop("Please set application id and password using set_secret_key(key='key', secret='secret')).")
 	}
+
 	sig <- signature_v2_auth(datetime = format(Sys.time(), 
 	 						 format ="%Y-%m-%dT%H:%M:%SZ", tz = "UTC"),
                              verb = "GET",
                              service = "awis.amazonaws.com",
                              path = "/",
                              query_args = query,
-                             key = app_id,
-                             secret = app_pass)
+                             key = key,
+                             secret = secret)
 
 	res <- GET("http://awis.amazonaws.com", query = sig$Query, ...)
 	alexa_check(res)
-	res <- xmlToList(content(res, as="text", encoding="utf-8"))
+	res <- as_list(content(res, as="text", encoding="utf-8"))
 
     result <- alexa_PROCESS(res)
 	result
