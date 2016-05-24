@@ -1,7 +1,7 @@
 ---
 title: "Overview of aws.alexa"
 author: "Gaurav Sood"
-date: "`r Sys.Date()`"
+date: "2016-05-24"
 vignette: >
   %\VignetteIndexEntry{Overview of aws.alexa}
   %\VignetteEngine{knitr::rmarkdown}
@@ -18,7 +18,8 @@ The package provides access to the [Alexa Web Information Service API](http://do
 
 To get the current development version from github:
 
-```{r, eval=FALSE, install}
+
+```r
 # install.packages("devtools")
 devtools::install_github("cloudyr/aws.alexa", build_vignettes = TRUE)
 ```
@@ -27,13 +28,15 @@ devtools::install_github("cloudyr/aws.alexa", build_vignettes = TRUE)
 
 To get going, get the application id and password from [https://console.aws.amazon.com/iam/home#security_credential](https://aws.amazon.com/). Then set the application id and password via the `set_secret_key` function.
 
-```{r, eval=FALSE, setapp}
+
+```r
 set_secret_key(key="key", secret="secret")
 ```
 
 #### URL Information 
 
-```{r, eval=FALSE, url_info}
+
+```r
 url_info("http://www.google.com")
 ```
 
@@ -47,7 +50,8 @@ url_info("http://www.google.com")
 ```
 #### Traffic History 
 
-```{r, eval=FALSE, traffic_hist}
+
+```r
 traffic <- traffic_history("http://www.google.com")
 head(traffic)
 ```
@@ -64,13 +68,15 @@ head(traffic)
 
 #### Browse Categories 
 
-```{r, eval=FALSE, browse_cats}
+
+```r
 browse_categories(path="Top/Arts")
 ```
 
 #### Category Listings
 
-```{r, eval=FALSE, cat_list}
+
+```r
 cat_list <- category_listing(path="Top/Arts")
 head(cat_list)
 ```
@@ -95,7 +101,8 @@ head(cat_list)
 
 #### In Links
 
-```{r, eval=FALSE, in_links}
+
+```r
 res_links <- in_links(url="google.com")
 head(res_links)
 ```

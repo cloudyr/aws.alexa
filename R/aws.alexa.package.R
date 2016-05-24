@@ -14,7 +14,7 @@
 #' 
 #' @importFrom stats setNames
 #' @importFrom httr GET content stop_for_status
-#' @importFrom xml2  as_list
+#' @importFrom XML xmlToList
 #' @importFrom plyr rbind.fill
 #' @importFrom aws.signature signature_v2_auth
 #' @docType package
@@ -52,7 +52,7 @@ function(query, key = Sys.getenv("AWS_ACCESS_KEY_ID"), secret = Sys.getenv("AWS_
 
 	res <- GET("http://awis.amazonaws.com", query = sig$Query, ...)
 	alexa_check(res)
-	res <- as_list(content(res, as="text", encoding="utf-8"))
+	res <- xmlToList(content(res, as="text", encoding="utf-8"))
 
     result <- alexa_PROCESS(res)
 	result
@@ -67,8 +67,8 @@ function(query, key = Sys.getenv("AWS_ACCESS_KEY_ID"), secret = Sys.getenv("AWS_
 alexa_PROCESS <- 
 function(res) {
 
-   cat("Request ID: ", res[[1]]$OperationRequest$RequestId, "\n")
-   cat("Response Status: ", res[[1]]$ResponseStatus$StatusCode, "\n")
+   cat("Request ID: ", unlist(res[[1]]$OperationRequest$RequestId), "\n")
+   cat("Response Status: ", unlist(res[[1]]$ResponseStatus$StatusCode), "\n")
 
    res[[1]]
 }
