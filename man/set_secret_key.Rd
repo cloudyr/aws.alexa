@@ -11,17 +11,17 @@ set_secret_key(key = NULL, secret = NULL, force = FALSE)
 
 \item{secret}{String; Required; Secret Access Key}
 
-\item{force}{String; Required; Force change the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY stored in the environment}
+\item{force}{String; Required; Force change the \code{AWS_ACCESS_KEY_ID} and \code{AWS_SECRET_ACCESS_KEY} stored in the environment}
 }
 \description{
 Get the Access Key ID and Secret Access Key by logging into \url{https://console.aws.amazon.com/}, 
 clicking on the username followed by security credentials. The function sets two environmental variables
-AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY. These environment variables persist within a R session. The function 
+\code{AWS_ACCESS_KEY_ID} and \code{AWS_SECRET_ACCESS_KEY}. These environment variables persist within a R session. The function 
 looks for these variables
 }
 \examples{
 \dontrun{
-set_secret_key(key="key", secret="secret")
+set_secret_key(key = "key", secret = "secret")
 }
 }
 \references{

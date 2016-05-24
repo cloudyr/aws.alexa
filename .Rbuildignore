@@ -5,3 +5,4 @@
 ^dev$
 ^cran-comments.md$
 ^tests\testthat\aws.alexa_key.enc$
+drat.sh

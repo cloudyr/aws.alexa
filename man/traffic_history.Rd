@@ -4,7 +4,7 @@
 \alias{traffic_history}
 \title{Get Traffic History of a URL}
 \usage{
-traffic_history(url = NULL, range = 31, start = NULL)
+traffic_history(url = NULL, range = 31, start = NULL, ...)
 }
 \arguments{
 \item{url}{String; Required; valid url}
@@ -12,6 +12,8 @@ traffic_history(url = NULL, range = 31, start = NULL)
 \item{range}{Integer; Required; Default is 31, Maximum is 31. Pick an integer between 1 and 31.}
 
 \item{start}{String; Required; A date within the last 4 years in format YYYYMMDD.}
+
+\item{\dots}{Additional arguments passed to \code{\link{alexa_GET}}.}
 }
 \value{
 list

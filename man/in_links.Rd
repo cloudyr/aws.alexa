@@ -4,7 +4,7 @@
 \alias{in_links}
 \title{Sites linking to the site}
 \usage{
-in_links(url = NULL, start = 0, count = 20)
+in_links(url = NULL, start = 0, count = 20, ...)
 }
 \arguments{
 \item{url}{String; Required; valid url}
@@ -12,6 +12,8 @@ in_links(url = NULL, start = 0, count = 20)
 \item{start}{index of result at which to start; default = 0}
 
 \item{count}{Number of results to return for this request; Max = 20; Default = 20}
+
+\item{\dots}{Additional arguments passed to \code{\link{alexa_GET}}.}
 }
 \value{
 data.frame

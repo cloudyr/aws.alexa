@@ -1,21 +1,19 @@
 language: r
 sudo: required
-
-warnings_are_errors: true
-
-r_github_packages:
-  - jimhester/covr
-
+r_packages:
+- covr
 cache: packages
-
 before_install:
 - openssl aes-256-cbc -K $encrypted_1fc90f464345_key -iv $encrypted_1fc90f464345_iv
   -in tests/testthat/abbyy_key.enc -out tests/testthat/abbyy_key -d
-
 after_success:
-  - Rscript -e 'covr::codecov()'
-
+- Rscript -e 'covr::codecov()'
+- test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bash
+  drat.sh
 notifications:
   email:
     on_success: change
     on_failure: always
+env:
+  global:
+    secure: adb2rHB0LRKmu3vSbVit1+pli2TX95m16okjESTqhxI4wI3+qmcuotwBjluvknu8hYm1VLIDRQdc2tXmnv8fm82ZuQk7zCt/3kG1CnLJI3Yf3sk6/qyedvrgQOCubSKSN+F6qLv+A7kolqHi/MnZ7+O1ICDPNMZrcsHc0lafidGHn2AQ+13JRoHNuRDTLGtMlnF+2KvYoYJK6lZVfTixZwupySFtT4Yx9JjPZ+NsPlx2NbDgHAMdVkJntLwM3TTDwRfLue8uMNTUsn92pdVQrugHbKR3utNmfMBaYVBT3+ugi3dmIHBycTQBs36h4RigAqbXqUfDA9AeKQC7VRvPLQJi/M57clg6Cys1mg+V0ex1w53uOahhGrlHDZHkocOiUt65r18OatOwHG5OgLY4/n8/kIAbFYgEXDYYKGfAeVBn9z2HCSWI8s86cwANImBaU7At/H7fnUufznHtZ+RMIkyKa5exbF85tE9N1cAoQodPItRNK7ao8oabWStHJEytnuH08WZDgilWkhVisiZ268SrOt5G9z0Xt1qG2RHM4ZLKy1j3tZKQJL/L+5CYN7rVq07QlqaZHq6Er14lxursp84NA8M7DnclmR2phtuMszN5L+k1z43UbTdAPgPAEL4udoAPbnPlF4VmIpjg7J6tT/iUnY76TdA/37BhfbddHUQ=

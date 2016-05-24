@@ -28,26 +28,31 @@ NULL
 #' GET
 #' 
 #' @param query query list 
+#' @param key A character string containing an AWS Access Key ID. The default is retrieved from \code{Sys.getenv("AWS_ACCESS_KEY_ID")}.
+#' @param secret A character string containing an AWS Secret Access Key. The default is retrieved from \code{Sys.getenv("AWS_SECRET_ACCESS_KEY")}.
+#' @param \dots Additional arguments passed to \code{\link[httr]{GET}}.
 #' @return list
 
-aws.alexa_GET <- 
-function(query) {
+alexa_GET <- 
+function(query, key = Sys.getenv("AWS_ACCESS_KEY_ID"), secret = Sys.getenv("AWS_SECRET_ACCESS_KEY"), ...) {
 
-	app_id = Sys.getenv("AWS_ACCESS_KEY_ID"); app_pass = Sys.getenv("AWS_SECRET_ACCESS_KEY")
+	app_id <- key
+    app_pass <- secret
 
-	if(identical(app_id, "") | identical(app_pass, "")) stop("Please set application id and password using set_secret_key(key='key', secret='secret')).")
-	
+	if (identical(app_id, "") | identical(app_pass, "")) {
+        stop("Please set application id and password using set_secret_key(key='key', secret='secret')).")
+	}
 	sig <- signature_v2_auth(datetime = format(Sys.time(), 
-	 						  format ="%Y-%m-%dT%H:%M:%SZ", tz = "UTC"),
-                              verb = "GET",
-                              service = "awis.amazonaws.com",
-                              path = "/",
-                              query_args = query,
-                              key = app_id,
-                              secret = app_pass)
+	 						 format ="%Y-%m-%dT%H:%M:%SZ", tz = "UTC"),
+                             verb = "GET",
+                             service = "awis.amazonaws.com",
+                             path = "/",
+                             query_args = query,
+                             key = app_id,
+                             secret = app_pass)
 
-	res <- GET("http://awis.amazonaws.com",  query = sig$Query)
-	aws.alexa_check(res)
+	res <- GET("http://awis.amazonaws.com", query = sig$Query, ...)
+	alexa_check(res)
 	res <- xmlToList(content(res, as="text", encoding="utf-8"))
 
 	res
@@ -59,9 +64,10 @@ function(query) {
 #' @param  req request
 #' @return in case of failure, a message
 
-aws.alexa_check <- 
+alexa_check <- 
 function(req) {
-  if (req$status_code < 400) return(invisible())
-
-  stop("HTTP failure: ", req$status_code, "\n", call. = FALSE)
+    if (req$status_code < 400) {
+        return(invisible())
+    }
+    stop("HTTP failure: ", req$status_code, "\n", call. = FALSE)
 } 

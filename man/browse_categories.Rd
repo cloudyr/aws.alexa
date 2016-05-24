@@ -5,7 +5,7 @@
 \title{Browse Categories}
 \usage{
 browse_categories(path = path, response_group = "Categories",
-  description = TRUE)
+  description = TRUE, ...)
 }
 \arguments{
 \item{path}{String; Required; valid category path}
@@ -13,6 +13,8 @@ browse_categories(path = path, response_group = "Categories",
 \item{response_group}{String; Required; One of the following: Categories, RelatedCategories, LanguageCategories, LetterBars}
 
 \item{description}{Boolean; Optional; Whether or not to return descriptions of categories; Default is TRUE}
+
+\item{\dots}{Additional arguments passed to \code{\link{alexa_GET}}.}
 }
 \value{
 data.frame

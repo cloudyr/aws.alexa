@@ -5,7 +5,7 @@
 \title{Category Listing}
 \usage{
 category_listing(path = path, sort_by = "Popularity", recursive = TRUE,
-  start = 0, count = 20, description = TRUE)
+  start = 0, count = 20, description = TRUE, ...)
 }
 \arguments{
 \item{path}{String; Required; valid category path}
@@ -19,6 +19,8 @@ category_listing(path = path, sort_by = "Popularity", recursive = TRUE,
 \item{count}{Number of results to return for this request; Max = 20; Default = 20}
 
 \item{description}{Boolean; Optional; Whether or not to return descriptions of categories; Default is TRUE}
+
+\item{\dots}{Additional arguments passed to \code{\link{alexa_GET}}.}
 }
 \value{
 data.frame

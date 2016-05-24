@@ -8,6 +8,7 @@
 #' @param recursive Boolean; Whether to return listings for the current category only, or for the current category plus all subcategories, Default is TRUE
 #' @param start index of result at which to start; default is 0
 #' @param count Number of results to return for this request; Max = 20; Default = 20
+#' @param \dots Additional arguments passed to \code{\link{alexa_GET}}.
 #' 
 #' @return data.frame
 #'  
@@ -17,12 +18,12 @@
 #' category_listing(path="Top/Arts")
 #' }
 
-category_listing <- function(path = path, sort_by="Popularity", recursive = TRUE, start = 0, count = 20, description = TRUE) {
+category_listing <- function(path = path, sort_by="Popularity", recursive = TRUE, start = 0, count = 20, description = TRUE, ...) {
     
    query <-  list(Action = "CategoryListings", ResponseGroup="Listings", SortBy = sort_by, Path =  path, 
    				  Start = start, Recursive = "True", Count = count, Descriptions = "True")
 
-   cat_list <- aws.alexa_GET(query)
+   cat_list <- alexa_GET(query, ...)
 
    cat_list
 }
