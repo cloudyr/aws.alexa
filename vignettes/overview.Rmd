@@ -58,5 +58,5 @@ category_listing(path="Top/Arts")
 #### In Links
 
 ```{r, eval=FALSE, in_links}
-in_links(url="http://www.google.com")
+in_links(url="google.com")
 ```

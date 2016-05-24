@@ -1,6 +1,6 @@
-context("Get URL Info.")
+context("Get In Links")
 
-test_that("url_info happens successfully", {
+test_that("in_links works", {
   
   skip_on_cran()
 
@@ -11,6 +11,6 @@ test_that("url_info happens successfully", {
   secret <- unlist(strsplit(token, ","))[2]
   set_secret_key(key, secret)
   
-  get_info <- url_info("google.com")
-  expect_that(get_info, is_a("data.frame"))
+  in_links <- in_links("google.com")
+  expect_that(in_links, is_a("data.frame"))
 })
