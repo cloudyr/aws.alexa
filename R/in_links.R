@@ -17,7 +17,7 @@
 in_links <- function(url = NULL, start = 0, count = 20, ...) {
    
     if (!is.character(url)) {
-        stop("Must specify url")
+        stop("Please specify a valid url")
     }
 
     query <-  list(Action = "SitesLinkingIn", ResponseGroup="SitesLinkingIn", Url = url, Start = start, Count = count)

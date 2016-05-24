@@ -20,7 +20,7 @@ traffic_history <- function(url = NULL, range=31, start=NULL, ...) {
         stop("Must specify url")
     }
 
-    if (is.numeric(range) & (range < 1 | range > 31)) {
+    if (!is.numeric(range) | (range < 1 | range > 31)) {
         stop("Range must be between 1 and 31.")
     }
     
