@@ -1,7 +1,7 @@
 ---
 title: "Overview of aws.alexa"
 author: "Gaurav Sood"
-date: "2016-05-24"
+date: "2016-06-01"
 vignette: >
   %\VignetteIndexEntry{Overview of aws.alexa}
   %\VignetteEngine{knitr::rmarkdown}
@@ -26,7 +26,7 @@ devtools::install_github("cloudyr/aws.alexa", build_vignettes = TRUE)
 
 ### Usage
 
-To get going, get the application id and password from [https://console.aws.amazon.com/iam/home#security_credential](https://aws.amazon.com/). Then set the application id and password via the `set_secret_key` function.
+To get going, get the application id and password from [https://aws.amazon.com/](https://aws.amazon.com/). Then set the application id and password via the `set_secret_key` function.
 
 
 ```r
@@ -43,7 +43,7 @@ url_info("http://www.google.com")
 ```
 ##          url attribute  title
 ## 1 google.com/ canonical Google
-##                                                                                                                             description
+                                                                                                                            description
 ## 1 Enables users to search the world's information, including webpages, images, and videos. Offers unique features and search technology.
 ##  online_since
 ## 1  15-Sep-1997

@@ -25,7 +25,7 @@ devtools::install_github("cloudyr/aws.alexa", build_vignettes = TRUE)
 
 ### Usage
 
-To get going, get the application id and password from [https://console.aws.amazon.com/iam/home#security_credential](https://aws.amazon.com/). Then set the application id and password via the `set_secret_key` function.
+To get going, get the application id and password from [https://aws.amazon.com/](https://aws.amazon.com/). Then set the application id and password via the `set_secret_key` function.
 
 ```{r, eval=FALSE, setapp}
 set_secret_key(key="key", secret="secret")
