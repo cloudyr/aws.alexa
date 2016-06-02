@@ -1,6 +1,6 @@
 # R Client for the Alexa Web Information Services API
 
-Find information about domains, including the kind of content that they carry, how popular are they, sites linking to them, among other things. The package provides access to the [Alexa Web Information Service API](http://docs.aws.amazon.com/AlexaWebInfoService/latest/). 
+Use the [Alexa Web Information Service API](http://docs.aws.amazon.com/AlexaWebInfoService/latest/) to find information about domains, including the kind of content that they carry, how popular are they---rank and traffic history, sites linking to them, among other things. 
 
 To use the package, you will need an AWS account and enter your credentials into R. Your keypair can be generated on the [IAM Management Console](https://aws.amazon.com/) under the heading *Access Keys*. Note that you only have access to your secret key once. After it is generated, you need to save it in a secure location. New keypairs can be generated at any time if yours has been lost, stolen, or forgotten. 
 
@@ -16,7 +16,7 @@ These can alternatively be set on the command line or via an `Renviron.site` or 
 
 ## Code Examples
 
-To get acquainted with some of the important functions, see the vignette:
+To get acquainted with some of the important functions, see the [vignette](vignettes/overview.md). Or launch the vignette within R:
 
 ```r
 # Overview of the package
