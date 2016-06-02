@@ -16,7 +16,7 @@ Default is 'SiteData'. Multiple fields can be passed. They must be separated by 
 \item{\dots}{Additional arguments passed to \code{\link{alexa_GET}}.}
 }
 \value{
-data.frame with 5 columns: url, attribute, title, description, online_since
+named list
 }
 \description{
 Get Information about a URL
