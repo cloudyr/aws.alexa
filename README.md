@@ -20,7 +20,7 @@ To get acquainted with some of the important functions, see the [vignette](vigne
 
 ```r
 # Overview of the package
-vignette("introduction", package = "alexa")
+vignette("introduction", package = "aws.alexa")
 ```
 
 ## License
@@ -31,8 +31,8 @@ Scripts are released under the [MIT License](https://opensource.org/licenses/MIT
 
 [![Build Status](https://travis-ci.org/cloudyr/aws.alexa.svg?branch=master)](https://travis-ci.org/cloudyr/aws.alexa)
 [![Appveyor Build status](https://ci.appveyor.com/api/projects/status/yh856e6cv7uucaj2?svg=true)](https://ci.appveyor.com/project/cloudyr/aws.alexa)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/alexa)](https://cran.r-project.org/package=alexa)
-![](http://cranlogs.r-pkg.org/badges/grand-total/alexa)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/alexa)](https://cran.r-project.org/package=aws.alexa)
+![](http://cranlogs.r-pkg.org/badges/grand-total/aws.alexa)
 [![codecov.io](http://codecov.io/github/cloudyr/aws.alexa/coverage.svg?branch=master)](http://codecov.io/github/cloudyr/aws.alexa?branch=master)
 
 This package is not yet on CRAN. To install the latest development version you can install from the cloudyr drat repository:
