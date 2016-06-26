@@ -16,4 +16,8 @@ test_that("traffic_history works", {
 
   traffic_history(url="http://www.google.com", start="20160505")
   expect_that(traffic, is_a("data.frame"))
+
+  traffic_history(url="http://www.collegeweeklive.com", start="20160505")
+  expect_that(traffic, is_a("data.frame"))
+
 })
