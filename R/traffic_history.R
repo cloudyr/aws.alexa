@@ -31,8 +31,18 @@ traffic_history <- function(url = NULL, range=31, start=NULL, ...) {
     query <-  list(Action = "TrafficHistory", Url = url, ResponseGroup="History", range=range, start=start)
     traffic_payload <- alexa_GET(query, ...)
     
-    res <- do.call(rbind, lapply(lapply(traffic_payload[[2]][[1]], "[[", 4)[[1]], unlist))
-    res <- as.data.frame(res, row.names= 1:length(res))
+    res_list <- lapply(lapply(traffic_payload[[2]][[1]], "[[", 4)[[1]], unlist)
+    
+    res_names  <- sapply(res_list, names)
+    uniq_names <- unique(unlist(res_names))
+    res_len    <- sapply(res_list, length)
+    out        <- vector("list", length(res_len))
+    for (i in seq_along(res_len)) {
+        out[[i]] <- unname(res_list[[i]])[match(uniq_names, res_names[[i]])]
+    }
+ 
+    res <- as.data.frame(do.call(rbind, out), stringsAsFactors=FALSE)
+
     names(res) <- c("date", "page_views_per_million", "page_views_per_user", "rank", "reach_per_million")
 
     res
