@@ -24,7 +24,7 @@ traffic_history <- function(url = NULL, range=31, start=NULL, ...) {
         stop("Range must be between 1 and 31.")
     }
     
-    if (is.na(as.Date(date, "%Y%m%d"))) {
+    if (is.na(as.Date(start, "%Y%m%d"))) {
         stop("Date is not in the right format. The correct format is YYYYMMDD")
     }
 
