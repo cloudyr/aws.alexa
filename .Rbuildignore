@@ -3,6 +3,7 @@
 ^\.travis\.yml$
 ^appveyor\.yml$
 ^dev$
+^revdep$
 ^cran-comments.md$
 ^tests\testthat\aws.alexa_key.enc$
 drat.sh
