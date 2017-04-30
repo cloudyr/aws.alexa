@@ -24,7 +24,7 @@ traffic_history <- function(url = NULL, range = 31, start = NULL, ...) {
         stop("Range must be between 1 and 31.")
     }
 
-    if (!is.null(start)) { 
+    if (!is.null(start)) {
       if (is.na(as.Date(start, "%Y%m%d"))) {
         stop("Date is not in the right format. The correct format is YYYYMMDD")
       }
@@ -36,8 +36,7 @@ traffic_history <- function(url = NULL, range = 31, start = NULL, ...) {
 
     res_list  <- lapply(lapply(traffic_payload[[2]][[1]], "[[", 4)[[1]], unlist)
 
-    res_names  <- sapply(res_list, names)
-    res        <- ldply(res_list, rbind)[ , -1]
+    res        <- ldply(res_list, rbind)[, -1]
 
     if (nrow(res) > 0) {
       names(res) <- c("date", "page_views_per_million", "page_views_per_user",
