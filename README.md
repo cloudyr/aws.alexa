@@ -12,7 +12,7 @@ Sys.setenv("AWS_ACCESS_KEY_ID" = "mykey",
            "AWS_DEFAULT_REGION" = "us-east-1")
 ```
 
-These can alternatively be set on the command line or via an `Renviron.site` or `.Renviron` file ([see here for instructions](http://cran.r-project.org/web/packages/httr/vignettes/api-packages.html)).
+These can alternatively be set on the command line or via an `Renviron.site` or `.Renviron` file ([see here for instructions](https://cran.r-project.org/web/packages/httr/vignettes/api-packages.html)).
 
 ## Code Examples
 
