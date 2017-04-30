@@ -15,7 +15,7 @@
 #' @importFrom stats setNames
 #' @importFrom httr GET content stop_for_status
 #' @importFrom XML xmlToList
-#' @importFrom plyr rbind.fill
+#' @importFrom plyr rbind.fill ldply
 #' @importFrom aws.signature signature_v2_auth
 #' @docType package
 #' @author Gaurav Sood

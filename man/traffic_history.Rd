@@ -11,7 +11,7 @@ traffic_history(url = NULL, range = 31, start = NULL, ...)
 
 \item{range}{Integer; Required; Default is 31, Maximum is 31. Pick an integer between 1 and 31.}
 
-\item{start}{String; Required; A date within the last 4 years in format YYYYMMDD.}
+\item{start}{String; Optional; A date within the last 4 years in format YYYYMMDD.}
 
 \item{\dots}{Additional arguments passed to \code{\link{alexa_GET}}.}
 }
@@ -23,7 +23,7 @@ Get Traffic History of a URL
 }
 \examples{
 \dontrun{
-traffic_history(url="http://www.google.com", start="20160505")
+traffic_history(url = "http://www.google.com", start = "20160505")
 }
 }
 \references{

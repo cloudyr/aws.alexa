@@ -1,6 +1,7 @@
 # aws.alex 0.1.4
 
 * Lots of linting. Only issues with XML function names
+* start_date in traffic_history is now optional. Also fixes a bug. Use ldply rather than use something more complicated.
 
 # aws.alexa 0.1.3
 
