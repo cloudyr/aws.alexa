@@ -27,4 +27,3 @@ set_secret_key(key = "key", secret = "secret")
 \references{
 \url{https://aws.amazon.com/}
 }
-

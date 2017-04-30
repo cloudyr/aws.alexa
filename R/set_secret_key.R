@@ -16,26 +16,27 @@
 #' }
 
 set_secret_key <- function(key = NULL, secret = NULL, force = FALSE) {
-    
-    env_id <- Sys.getenv('AWS_ACCESS_KEY_ID')
-    env_pass <- Sys.getenv('AWS_SECRET_ACCESS_KEY')
-    
-    # If you cannot find AWS_ACCESS_KEY_ID or AWS_SECRET_ACCESS_KEY in the environment
-    if ((identical(env_id, "") | identical(env_pass, "")) | !force) {
 
-        if (!is.null(key) & !is.null(secret)) {
-            # First look for arguments passed in the function
-            Sys.setenv(AWS_ACCESS_KEY_ID = key)
-            Sys.setenv(AWS_SECRET_ACCESS_KEY = secret)
-        } else {
-            # Else ask user for the details    
-            message("Couldn't find env var AWS_ACCESS_KEY_ID or AWS_ACCESS_KEY_ID. See ?set_secret_key for more details.")
-            message("Please enter your AWS_ACCESS_KEY_ID and press enter:")
-            pat <- readline(": ")
-            Sys.setenv(AWS_ACCESS_KEY_ID = pat)
-            message("Now please enter your AWS_ACCESS_KEY_ID and press enter:")
-            pat <- readline(": ")
-            Sys.setenv(AWS_SECRET_ACCESS_KEY = pat)
-        }
+  env_id   <- Sys.getenv("AWS_ACCESS_KEY_ID")
+  env_pass <- Sys.getenv("AWS_SECRET_ACCESS_KEY")
+
+  # If you cannot find AWS_ACCESS_KEY_ID or AWS_SECRET_ACCESS_KEY in the env.
+  if ( (identical(env_id, "") | identical(env_pass, "")) | !force) {
+
+    if (!is.null(key) & !is.null(secret)) {
+      # First look for arguments passed in the function
+      Sys.setenv(AWS_ACCESS_KEY_ID = key)
+      Sys.setenv(AWS_SECRET_ACCESS_KEY = secret)
+    } else {
+      # Else ask user for the details
+      message("Couldn't find env var AWS_ACCESS_KEY_ID or AWS_ACCESS_KEY_ID.
+                                         See ?set_secret_key for more details.")
+      message("Please enter your AWS_ACCESS_KEY_ID and press enter:")
+      pat <- readline(": ")
+      Sys.setenv(AWS_ACCESS_KEY_ID = pat)
+      message("Now please enter your AWS_ACCESS_KEY_ID and press enter:")
+      pat <- readline(": ")
+      Sys.setenv(AWS_SECRET_ACCESS_KEY = pat)
     }
+  }
 }

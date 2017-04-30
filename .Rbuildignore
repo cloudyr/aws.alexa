@@ -3,8 +3,10 @@
 ^\.travis\.yml$
 ^appveyor\.yml$
 ^dev$
+^docs$
 ^revdep$
 ^cran-comments.md$
 ^tests\testthat\aws.alexa_key.enc$
 drat.sh
+^_pkgdown\.yml$
 CONTRIBUTING.md

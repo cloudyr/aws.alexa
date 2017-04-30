@@ -15,4 +15,3 @@ display request ID and Response Status and the first member of the list
 \description{
 Postprocess the results a bit
 }
-

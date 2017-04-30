@@ -29,4 +29,3 @@ traffic_history(url="http://www.google.com", start="20160505")
 \references{
 \url{http://docs.aws.amazon.com/AlexaWebInfoService/latest/ApiReference_TrafficHistoryAction.html}
 }
-

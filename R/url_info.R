@@ -14,14 +14,13 @@
 #' }
 
 url_info <- function(url = NULL, response_group = "SiteData", ...) {
-    
+
    if (!is.character(url)) {
         stop("Must specify url")
    }
-   
-   query <-  list(Action = "UrlInfo", Url = url, ResponseGroup=response_group)
+
+   query <-  list(Action = "UrlInfo", Url = url, ResponseGroup = response_group)
    urlinfo_payload <- alexa_GET(query, ...)
-   
+
    urlinfo_payload
-   
 }

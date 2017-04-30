@@ -1,3 +1,7 @@
+# aws.alex 0.1.4
+
+* Lots of linting. Only issues with XML function names
+
 # aws.alexa 0.1.3
 
 * Two bugs in traffic_history function fixed

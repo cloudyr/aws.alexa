@@ -15,33 +15,37 @@
 #' browse_categories(path="Top/Arts")
 #' }
 
-browse_categories <- function(path = NULL, response_group = "Categories", description = TRUE, ...) {
-    
-    if (!is.character(path)) {
-        stop("Please specify a valid path.")
-    }
+browse_categories <- function(path = NULL, response_group = "Categories",
+                                                      description = TRUE, ...) {
 
-    if (!is.logical(description)) {
-   		stop("Please provide a valid value for description.")
-    }
+  if (!is.character(path)) {
+    stop("Please specify a valid path.")
+  }
 
-    if (!(response_group %in% c("Categories", "RelatedCategories", "LanguageCategories", "LetterBars"))) {
-        stop("Please provide a valid value for response_group.")
-    }
+  if (!is.logical(description)) {
+    stop("Please provide a valid value for description.")
+  }
 
-    # Convert Boolean to String
-    description <- ifelse(description, 'True', 'False')
+  if (!(response_group %in% c("Categories", "RelatedCategories",
+                                         "LanguageCategories", "LetterBars"))) {
+    stop("Please provide a valid value for response_group.")
+  }
 
-    query <-  list(Action = "CategoryBrowse", ResponseGroup=response_group, Path = path, Descriptions = description)
+  # Convert Boolean to String
+  description <- ifelse(description, "True", "False")
 
-    browse_cat <- alexa_GET(query, ...)
+  query <-  list(Action = "CategoryBrowse", ResponseGroup = response_group,
+                                        Path = path, Descriptions = description)
 
-    if (is.null(browse_cat[[2]][[1]][[1]][[1]])) {
-        message("No Results. It is likely that the path you provided is incorrect.")
-        return(NULL)
-    }
+  browse_cat <- alexa_GET(query, ...)
 
-    res <- do.call(rbind.fill, lapply(browse_cat[[2]][[1]][[1]][[1]], data.frame))
-    names(res) <- c("path", "title", "sub_category_count", "total_listing_count", "description")
-    res
-}   
+  if (is.null(browse_cat[[2]][[1]][[1]][[1]])) {
+    message("No Results. It is likely that the path you provided is incorrect.")
+    return(NULL)
+  }
+
+  res <- do.call(rbind.fill, lapply(browse_cat[[2]][[1]][[1]][[1]], data.frame))
+  names(res) <- c("path", "title", "sub_category_count", "total_listing_count",
+                                                                  "description")
+  res
+}

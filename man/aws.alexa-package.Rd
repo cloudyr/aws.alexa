@@ -2,8 +2,8 @@
 % Please edit documentation in R/aws.alexa.package.R
 \docType{package}
 \name{aws.alexa-package}
-\alias{aws.alexa}
 \alias{aws.alexa-package}
+\alias{aws.alexa}
 \title{aws.alexa: R Client for the Alexa Web Information Services API}
 \description{
 Find information about domains, including the kind of content that they carry, how popular are they, sites linking to them, among other things.
@@ -18,4 +18,3 @@ And set these using \code{\link{set_secret_key}}
 \author{
 Gaurav Sood
 }
-

@@ -1,0 +1,118 @@
+---
+title: "Overview of aws.alexa"
+author: "Gaurav Sood"
+date: "2016-06-01"
+vignette: >
+  %\VignetteIndexEntry{Overview of aws.alexa}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+### Client for the Alexa Web Information Services API
+
+Find information about domains, including the kind of content that they carry, how popular are they, sites linking to them, among other things.
+
+The package provides access to the [Alexa Web Information Service API](http://docs.aws.amazon.com/AlexaWebInfoService/latest/). 
+
+### Installation
+
+To get the current development version from github:
+
+
+```r
+# install.packages("devtools")
+devtools::install_github("cloudyr/aws.alexa", build_vignettes = TRUE)
+```
+
+### Usage
+
+To get going, get the application id and password from [https://aws.amazon.com/](https://aws.amazon.com/). Then set the application id and password via the `set_secret_key` function.
+
+
+```r
+set_secret_key(key="key", secret="secret")
+```
+
+#### URL Information 
+
+
+```r
+url_info("http://www.google.com")
+```
+
+```
+##          url attribute  title
+## 1 google.com/ canonical Google
+                                                                                                                            description
+## 1 Enables users to search the world's information, including webpages, images, and videos. Offers unique features and search technology.
+##  online_since
+## 1  15-Sep-1997
+```
+#### Traffic History 
+
+
+```r
+traffic <- traffic_history("http://www.google.com")
+head(traffic)
+```
+
+```
+##         Date PageViews.PerMillion PageViews.PerUser Rank Reach.PerMillion
+## 1 2016-04-22               105330             16.18    1           436000
+## 2 2016-04-23                78490             12.30    2           414000
+## 3 2016-04-24                75310             11.94    2           413600
+## 4 2016-04-25               112420             17.90    1           436800
+## 5 2016-04-26               114280             17.79    1           447300
+## 6 2016-04-27               111610             17.41    1           440200
+```
+
+#### Browse Categories 
+
+
+```r
+browse_categories(path="Top/Arts")
+```
+
+#### Category Listings
+
+
+```r
+cat_list <- category_listing(path="Top/Arts")
+head(cat_list)
+```
+
+```
+##                                   DataUrl.text DataUrl..attrs                       Title PopularityRank AverageReview
+## 1                      http://www.youtube.com/      navigable                     YouTube              2       4.12195
+## 2 http://www.facebook.com/#!/JeffDunham?ref=ts      navigable                    Facebook              4             4
+## 3            http://twitter.com/#!/nbctheevent      navigable          Twitter: The Event             13             4
+## 4                         http://www.imdb.com/      navigable The Internet Movie Database             65           4.5
+## 5                          http://www.cnn.com/      navigable                         CNN             98           2.5
+## 6                        http://www.bbc.co.uk/      navigable                  BBC Online            107             4
+##                                                                                              Description
+## 1                                             User-submitted videos with rating, comments, and contests.
+## 2 A social utility that connects people, to keep up with friends, upload photos, share links and videos.
+## 3                                               Official Twitter account for the series, at @nbcthevent.
+## 4                                   Features plot summaries, reviews, cast lists, and theatre schedules.
+## 5                                                                                     Cable News Network
+## 6                                                          The BBC Homepage - Your gateway to BBC Online
+
+```
+
+#### In Links
+
+
+```r
+res_links <- in_links(url="google.com")
+head(res_links)
+```
+
+```
+##         Title                                                                                                                                 Url
+## 1 youtube.com     m.youtube.com:80/?client=mv-google&p=1&nomobile=1&desktop_uri=/?gl=KE&p=1&client=mv-google&hl=fil&nomobile=1&hl=fil&app=m&gl=KE
+## 2  amazon.com                                                                                                                 alexa.amazon.com:80
+## 3   yahoo.com                 ar.news.qa1p.global.media.yahoo.com:80/blogs/ciencia-bruja/mario-bunge-y-el-detector-fama-cient-fica-171403253.html
+## 4    ebay.com community.ebay.com:80/t5/Archive-International-Trading/Can-not-pay-One-or-more-of-the-items-below-cannot-be-purchased/qaq-p/4981427
+## 5 yahoo.co.jp                                                                            blog.olp.yahoo.co.jp:80/archives/20130128_mapupdate.html
+## 6   baidu.com                                                                                       anquan.baidu.com:80/bbs/thread-86224-1-1.html
+```

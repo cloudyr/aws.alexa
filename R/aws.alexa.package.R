@@ -34,28 +34,29 @@ NULL
 #' @param \dots Additional arguments passed to \code{\link[httr]{GET}}.
 #' @return list
 
-alexa_GET <- 
-function(query, key = Sys.getenv("AWS_ACCESS_KEY_ID"), secret = Sys.getenv("AWS_SECRET_ACCESS_KEY"), ...) {
+alexa_GET <- function(query, key = Sys.getenv("AWS_ACCESS_KEY_ID"),
+                            secret = Sys.getenv("AWS_SECRET_ACCESS_KEY"), ...) {
 
-	if (identical(key, "") | identical(secret, "")) {
-        stop("Please set application id and password using set_secret_key(key='key', secret='secret')).")
-	}
+  if (identical(key, "") | identical(secret, "")) {
+    stop("Please set application id and password using set_secret_key(key='key',
+                                                            secret='secret')).")
+  }
 
-	sig <- signature_v2_auth(datetime = format(Sys.time(), 
-	 						 format ="%Y-%m-%dT%H:%M:%SZ", tz = "UTC"),
-                             verb = "GET",
-                             service = "awis.amazonaws.com",
-                             path = "/",
-                             query_args = query,
-                             key = key,
-                             secret = secret)
+  sig <- signature_v2_auth(datetime = format(Sys.time(),
+                           format = "%Y-%m-%dT%H:%M:%SZ", tz = "UTC"),
+                           verb = "GET",
+                           service = "awis.amazonaws.com",
+                           path = "/",
+                           query_args = query,
+                           key = key,
+                           secret = secret)
 
-	res <- GET("http://awis.amazonaws.com", query = sig$Query, ...)
-	alexa_check(res)
-	res <- xmlToList(content(res, as="text", encoding="utf-8"))
+  res <- GET("http://awis.amazonaws.com", query = sig$Query, ...)
+  alexa_check(res)
+  res <- xmlToList(content(res, as = "text", encoding = "utf-8"))
 
-    result <- alexa_PROCESS(res)
-	result
+  result <- alexa_PROCESS(res)
+  result
 }
 
 #'
@@ -64,13 +65,12 @@ function(query, key = Sys.getenv("AWS_ACCESS_KEY_ID"), secret = Sys.getenv("AWS_
 #' @param  res result
 #' @return display request ID and Response Status and the first member of the list 
 
-alexa_PROCESS <- 
-function(res) {
+alexa_PROCESS <- function(res) {
 
-   cat("Request ID: ", unlist(res[[1]]$OperationRequest$RequestId), "\n")
-   cat("Response Status: ", unlist(res[[1]]$ResponseStatus$StatusCode), "\n")
+  cat("Request ID: ", unlist(res[[1]]$OperationRequest$RequestId), "\n")
+  cat("Response Status: ", unlist(res[[1]]$ResponseStatus$StatusCode), "\n")
 
-   res[[1]]
+  res[[1]]
 }
 
 #'
@@ -79,10 +79,11 @@ function(res) {
 #' @param  req request
 #' @return in case of failure, a message
 
-alexa_check <- 
-function(req) {
-    if (req$status_code < 400) {
-        return(invisible())
-    }
-    stop("HTTP failure: ", req$status_code, "\n", call. = FALSE)
-} 
+alexa_check <- function(req) {
+
+  if (req$status_code < 400) {
+    return(invisible())
+  }
+
+  stop("HTTP failure: ", req$status_code, "\n", call. = FALSE)
+}
