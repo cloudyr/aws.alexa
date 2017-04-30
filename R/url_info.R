@@ -10,7 +10,7 @@
 #' @export
 #' @references \url{http://docs.aws.amazon.com/AlexaWebInfoService/latest/ApiReference_UrlInfoAction.html}
 #' @examples \dontrun{
-#' url_info(url="http://www.google.com")
+#' url_info(url = "http://www.google.com")
 #' }
 
 url_info <- function(url = NULL, response_group = "SiteData", ...) {

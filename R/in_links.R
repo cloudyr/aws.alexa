@@ -11,7 +11,7 @@
 #' @export
 #' @references \url{http://docs.aws.amazon.com/AlexaWebInfoService/latest/ApiReference_SitesLinkingInAction.html}
 #' @examples \dontrun{
-#' in_links(url="google.com")
+#' in_links(url = "google.com")
 #' }
 
 in_links <- function(url = NULL, start = 0, count = 20, ...) {
@@ -25,7 +25,8 @@ in_links <- function(url = NULL, start = 0, count = 20, ...) {
 
   insite_links_payload <- alexa_GET(query, ...)
 
-  res <- do.call(rbind, lapply(insite_links_payload[[2]][[1]][[1]], unlist))
-  res_df <- as.data.frame(res, row.names = 1:length(res))
-  names(res_df) <- c("title", "url")
+  res <- ldply(lapply(insite_links_payload[[2]][[1]][[1]], unlist), rbind)
+  names(res) <- tolower(names(res))
+
+  res
 }

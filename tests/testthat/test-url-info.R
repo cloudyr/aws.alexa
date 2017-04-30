@@ -12,5 +12,5 @@ test_that("url_info happens successfully", {
   set_secret_key(key, secret)
 
   get_info <- url_info("google.com")
-  expect_that(get_info, is_a("data.frame"))
+  expect_that(get_info, is_a("list"))
 })

@@ -23,7 +23,7 @@ Get Information about a URL
 }
 \examples{
 \dontrun{
-url_info(url="http://www.google.com")
+url_info(url = "http://www.google.com")
 }
 }
 \references{

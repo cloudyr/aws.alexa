@@ -23,7 +23,7 @@ Sites linking to the site
 }
 \examples{
 \dontrun{
-in_links(url="google.com")
+in_links(url = "google.com")
 }
 }
 \references{
