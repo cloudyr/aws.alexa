@@ -1,8 +1,35 @@
 language: r
-sudo: required
+sudo: false
+cache: packages
+matrix:
+  include:
+    - os: linux
+      dist: precise
+      sudo: false
+      r_build_args: '--no-build-vignettes'
+      r_check_args: '--ignore-vignettes --no-examples'
+    - os: linux
+      dist: trusty
+      sudo: required
+      env: R_CODECOV=true
+    - os: osx
+      osx_image: xcode8.2
+      before_install:
+        - brew install curl
+        - brew link --force curl
+      latex: false
+      r_build_args: '--no-build-vignettes'
+      r_check_args: '--ignore-vignettes --no-examples'
+    - os: osx
+      osx_image: xcode7.3
+      latex: false
+      r_build_args: '--no-build-vignettes'
+      r_check_args: '--ignore-vignettes --no-examples'
 r_packages:
 - covr
-cache: packages
+- drat
+r_github_packages:
+- cloudyr/travisci
 before_install:
 - openssl aes-256-cbc -K $encrypted_dc184331e475_key -iv $encrypted_dc184331e475_iv
   -in tests/testthat/aws.alexa_key.enc -out tests/testthat/aws.alexa_key -d
@@ -10,6 +37,7 @@ after_success:
 - Rscript -e 'covr::codecov()'
 - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bash
   drat.sh
+- Rscript -e "travisci::restart_last_build('cloudyr/awspack')"
 notifications:
   email:
     on_success: change
