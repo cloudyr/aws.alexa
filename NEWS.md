@@ -1,4 +1,8 @@
-# aws.alex 0.1.4
+# aws.alexa 0.1.5
+
+* bug fixed in traffic_history. arguments to amz API calls now case sensitive.
+
+# aws.alexa 0.1.4
 
 * Lots of linting. Only issues with XML function names
 * start_date in traffic_history is now optional. Also fixes a bug. Use ldply rather than use something more complicated.

@@ -1,6 +1,6 @@
 Package: aws.alexa
 Title: Client for the Amazon Alexa Web Information Services API
-Version: 0.1.4
+Version: 0.1.5
 Authors@R: c(person("Gaurav", "Sood", email = "gsood07@gmail.com", role = c("aut", "cre")),
              person("Thomas", "Leeper", email = "thosjleeper@gmail.com", role = "ctb"))
 Description: Use the Amazon Alexa Web Information Services API to 
