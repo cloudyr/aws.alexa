@@ -31,7 +31,7 @@ traffic_history <- function(url = NULL, range = 31, start = NULL, ...) {
     }
 
     query <-  list(Action = "TrafficHistory", Url = url,
-                        ResponseGroup = "History", range = range, start = start)
+                        ResponseGroup = "History", Range = range, Start = start)
     traffic_payload <- alexa_GET(query, ...)
 
     res_list  <- lapply(lapply(traffic_payload[[2]][[1]], "[[", 4)[[1]], unlist)
