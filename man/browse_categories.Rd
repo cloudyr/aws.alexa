@@ -20,7 +20,7 @@ browse_categories(path = NULL, response_group = "Categories",
 data.frame with 5 columns: \code{path, title, sub_category_count, total_listing_count, description}
 }
 \description{
-Uses data from \url{http://www.dmoz.org}
+Uses data from dmoz.org, which is no longer updated.
 }
 \examples{
 \dontrun{

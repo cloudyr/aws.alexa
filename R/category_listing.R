@@ -1,6 +1,6 @@
 #' Category Listing
 #'
-#' Uses data from \url{http://www.dmoz.org}. For any given category, 
+#' Uses data from dmoz.org, which is no longer updated. For any given category, 
 #' it returns a list of site listings contained within that category.
 #' 
 #' @param path  String; Required; valid category path

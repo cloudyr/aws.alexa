@@ -1,6 +1,6 @@
 #' Browse Categories
 #'
-#' Uses data from \url{http://www.dmoz.org}
+#' Uses data from dmoz.org, which is no longer updated.
 #' 
 #' @param response_group String; Required; One of the following: Categories, RelatedCategories, LanguageCategories, LetterBars
 #' @param path  String; Required; valid category path
