@@ -7,7 +7,7 @@
 #' @param description Boolean; Optional; Whether or not to return descriptions of categories; Default is TRUE
 #' @param \dots Additional arguments passed to \code{\link{alexa_GET}}.
 #' 
-#' @return data.frame with 5 columns: path, title, sub_category_count, total_listing_count, description
+#' @return data.frame with 5 columns: \code{path, title, sub_category_count, total_listing_count, description}
 #'  
 #' @export
 #' @references \url{http://docs.aws.amazon.com/AlexaWebInfoService/latest/index.html?ApiReference_CategoryBrowseAction.html}
@@ -39,13 +39,11 @@ browse_categories <- function(path = NULL, response_group = "Categories",
 
   browse_cat <- alexa_GET(query, ...)
 
-  if (is.null(browse_cat[[2]][[1]][[1]][[1]])) {
-    message("No Results. It is likely that the path you provided is incorrect.")
-    return(NULL)
-  }
+  bind_rows(lapply(browse_cat[[1]]$CategoryBrowseResult$Alexa$CategoryBrowse$Categories, function(x) 
+            c(path = x$Path,
+              title = x$Title,
+              sub_category_count = x$SubCategoryCount,
+              total_listing_count = x$TotalListingCount,
+              description = x$Description)))
 
-  res <- do.call(rbind.fill, lapply(browse_cat[[2]][[1]][[1]][[1]], data.frame))
-  names(res) <- c("path", "title", "sub_category_count", "total_listing_count",
-                                                                  "description")
-  res
 }

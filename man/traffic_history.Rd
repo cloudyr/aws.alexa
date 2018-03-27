@@ -16,7 +16,8 @@ traffic_history(url = NULL, range = 31, start = NULL, ...)
 \item{\dots}{Additional arguments passed to \code{\link{alexa_GET}}.}
 }
 \value{
-data.frame with the following columns: date, page_views_per_million, page_views_per_user, rank, reach_per_million
+data.frame with the following columns: \code{site, start, range, 
+date, page_views_per_million, page_views_per_user, rank, reach_per_million}
 }
 \description{
 Get Traffic History of a URL

@@ -16,7 +16,7 @@
 url_info <- function(url = NULL, response_group = "SiteData", ...) {
 
    if (!is.character(url)) {
-        stop("Must specify url")
+        stop("Must specify URL")
    }
 
    query <-  list(Action = "UrlInfo", Url = url, ResponseGroup = response_group)

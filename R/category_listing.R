@@ -39,7 +39,7 @@ category_listing <- function(path = NULL, sort_by = "Popularity",
   }
 
   # Convert Boolean to String
-  recursive  <- ifelse(recursive, "True", "False")
+  recursive   <- ifelse(recursive, "True", "False")
   description <- ifelse(description, "True", "False")
 
   query <-  list(Action = "CategoryListings", ResponseGroup = "Listings",
@@ -49,5 +49,10 @@ category_listing <- function(path = NULL, sort_by = "Popularity",
 
   cat_list <- alexa_GET(query, ...)
 
-  do.call(rbind.fill, lapply(cat_list[[2]][[1]][[1]][[3]], as.data.frame))
+  bind_rows(lapply(cat_list[[1]]$CategoryListingsResult$Alexa$CategoryListings$Listings,
+            function(x) 
+            c(data_url = x$DataUrl,
+              popularity_rank = x$PopularityRank,
+              title = x$Title,
+              description = x$Description)))
 }

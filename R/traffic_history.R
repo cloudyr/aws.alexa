@@ -5,7 +5,8 @@
 #' @param start String; Optional; A date within the last 4 years in format YYYYMMDD.
 #' @param \dots Additional arguments passed to \code{\link{alexa_GET}}.
 #' 
-#' @return data.frame with the following columns: date, page_views_per_million, page_views_per_user, rank, reach_per_million
+#' @return data.frame with the following columns: \code{site, start, range, 
+#' date, page_views_per_million, page_views_per_user, rank, reach_per_million}
 #'  
 #' @export
 #' @references \url{http://docs.aws.amazon.com/AlexaWebInfoService/latest/ApiReference_TrafficHistoryAction.html}
@@ -34,18 +35,21 @@ traffic_history <- function(url = NULL, range = 31, start = NULL, ...) {
                         ResponseGroup = "History", Range = range, Start = start)
     traffic_payload <- alexa_GET(query, ...)
 
-    res_list  <- lapply(lapply(traffic_payload[[2]][[1]], "[[", 4)[[1]], unlist)
+    res  <- bind_rows(lapply(
+                traffic_payload[[1]]$TrafficHistoryResult[[1]][[1]]$HistoricalData,
+                function(x) 
+                c(date = x$Date,
+                  page_views_per_million = x$PageViews$PerMillion,
+                  page_views_per_user = x$PageViews$PerUser,
+                  rank = x$Rank,
+                  reach_per_million = x$Reach$PerMillion)
+                )
+            )
 
-    res        <- ldply(res_list, rbind)[, -1]
+    stem   <- traffic_payload$Response$TrafficHistoryResult$Alexa$TrafficHistory
+    basics <- data.frame(site = stem$Site[[1]],
+                         start = stem$Start[[1]],
+                         range = stem$Range[[1]])
 
-    if (nrow(res) > 0) {
-      names(res) <- c("date", "page_views_per_million", "page_views_per_user",
-                                                    "rank", "reach_per_million")
-    } else {
-        warning("No results returned for this domain.")
-        res <- data.frame(date = NA, page_views_per_million = NA,
-                          page_views_per_user = NA, rank = NA,
-                          reach_per_million = NA)
-    }
-    res
+    cbind(basics, res)
 }

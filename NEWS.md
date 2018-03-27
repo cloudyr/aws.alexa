@@ -1,3 +1,7 @@
+# aws.alexa 0.1.6
+
+* move to xml2 from XML and from plyr to dplyr
+
 # aws.alexa 0.1.5
 
 * bug fixed in traffic_history. arguments to amz API calls now case sensitive.

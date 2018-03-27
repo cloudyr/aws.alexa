@@ -25,8 +25,8 @@ in_links <- function(url = NULL, start = 0, count = 20, ...) {
 
   insite_links_payload <- alexa_GET(query, ...)
 
-  res <- ldply(lapply(insite_links_payload[[2]][[1]][[1]], unlist), rbind)
-  names(res) <- tolower(names(res))
+  res <- bind_rows(lapply(insite_links_payload$Response$SitesLinkingInResult[[1]][[1]],
+  	                                  function(x) c(title = x$Title, url =x$Url)))
 
   res
 }
