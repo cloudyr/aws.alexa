@@ -1,0 +1,8 @@
+url: https://cloudyr.github.io/aws.alexa/
+
+template:
+  params:
+    bootswatch: cosmo
+  docsearch:
+    api_key: 
+    index_name: aws.alexa

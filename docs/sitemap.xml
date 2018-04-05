@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://cloudyr.github.io/aws.alexa//reference/alexa_check.html</loc>
+  </url>
+  <url>
+    <loc>https://cloudyr.github.io/aws.alexa//reference/alexa_GET.html</loc>
+  </url>
+  <url>
+    <loc>https://cloudyr.github.io/aws.alexa//reference/alexa_PROCESS.html</loc>
+  </url>
+  <url>
+    <loc>https://cloudyr.github.io/aws.alexa//reference/aws.alexa-package.html</loc>
+  </url>
+  <url>
+    <loc>https://cloudyr.github.io/aws.alexa//reference/browse_categories.html</loc>
+  </url>
+  <url>
+    <loc>https://cloudyr.github.io/aws.alexa//reference/category_listing.html</loc>
+  </url>
+  <url>
+    <loc>https://cloudyr.github.io/aws.alexa//reference/in_links.html</loc>
+  </url>
+  <url>
+    <loc>https://cloudyr.github.io/aws.alexa//reference/set_secret_key.html</loc>
+  </url>
+  <url>
+    <loc>https://cloudyr.github.io/aws.alexa//reference/traffic_history.html</loc>
+  </url>
+  <url>
+    <loc>https://cloudyr.github.io/aws.alexa//reference/url_info.html</loc>
+  </url>
+  <url>
+    <loc>https://cloudyr.github.io/aws.alexa//articles/overview.html</loc>
+  </url>
+</urlset>
