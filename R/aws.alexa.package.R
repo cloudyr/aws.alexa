@@ -41,17 +41,51 @@ alexa_GET <- function(query, key = Sys.getenv("AWS_ACCESS_KEY_ID"),
     stop("Please set application id and password using set_secret_key(key='key',
                                                             secret='secret')).")
   }
+  
+  # locate and validate credentials
+  credentials <- locate_credentials(key = key, 
+                                    secret = secret, 
+                                    session_token = session_token, 
+                                    region = region, 
+                                    verbose = verbose)
 
-  sig <- signature_v2_auth(datetime = format(Sys.time(),
-                           format = "%Y-%m-%dT%H:%M:%SZ", tz = "UTC"),
+  key <- credentials[["key"]]
+  secret <- credentials[["secret"]]
+  session_token <- credentials[["session_token"]]
+  region <- credentials[["region"]]
+
+  hostname <- paste0("awis.", region, ".amazonaws.com")
+  current <- Sys.time()
+  header_timestamp <- format(current, "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")
+  canonical_headers <- c(list(host = hostname,
+                              `x-amz-date` = header_timestamp), headers)
+
+  # generate signatures
+  Sig <- signature_v4_auth(datetime = format(current,
+                                             "%Y%m%dT%H%M%SZ", tz = "UTC"),
+                           region = region,
+                           service = "awis",
                            verb = "GET",
-                           service = "awis.amazonaws.com",
-                           path = "/",
+                           action = "/api",
                            query_args = query,
+                           canonical_headers = canonical_headers,
+                           request_body = "",
                            key = key,
-                           secret = secret)
+                           secret = secret,
+                           session_token = session_token,
+                           verbose = verbose)
 
-  res <- GET("http://awis.amazonaws.com", query = sig$Query, ...)
+  headers[["x-amz-date"]] <- header_timestamp
+  headers[["x-amz-content-sha256"]] <- Sig$BodyHash
+  if (!is.null(session_token) && session_token != "") {
+    headers[["x-amz-security-token"]] <- session_token
+  }
+  headers[["Authorization"]] <- Sig[["SignatureHeader"]]
+
+  res <- GET("https://awis.amazonaws.com/api",
+             add_headers(headers),
+             query = query)
+
   alexa_check(res)
   res <- as_list(read_xml(content(res, as = "text", encoding = "utf-8")))
 
