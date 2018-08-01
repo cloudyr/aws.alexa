@@ -16,7 +16,7 @@
 #' @importFrom httr GET content stop_for_status
 #' @importFrom xml2 read_xml as_list
 #' @importFrom dplyr bind_rows
-#' @importFrom aws.signature signature_v2_auth
+#' @importFrom aws.signature signature_v4_auth locate_credentials
 #' @docType package
 #' @author Gaurav Sood
 NULL
