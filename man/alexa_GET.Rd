@@ -5,7 +5,9 @@
 \title{Base POST AND GET functions. Not exported.}
 \usage{
 alexa_GET(query, key = Sys.getenv("AWS_ACCESS_KEY_ID"),
-  secret = Sys.getenv("AWS_SECRET_ACCESS_KEY"), ...)
+  secret = Sys.getenv("AWS_SECRET_ACCESS_KEY"),
+  verbose = getOption("verbose", FALSE), session_token = NULL,
+  region = "us-west-1", headers = list(), ...)
 }
 \arguments{
 \item{query}{query list}
@@ -13,6 +15,14 @@ alexa_GET(query, key = Sys.getenv("AWS_ACCESS_KEY_ID"),
 \item{key}{A character string containing an AWS Access Key ID. The default is retrieved from \code{Sys.getenv("AWS_ACCESS_KEY_ID")}.}
 
 \item{secret}{A character string containing an AWS Secret Access Key. The default is retrieved from \code{Sys.getenv("AWS_SECRET_ACCESS_KEY")}.}
+
+\item{verbose}{A logical indicating whether to be verbose. Default is given by \code{options("verbose")}.}
+
+\item{session_token}{Optionally, a character string containing an AWS temporary Session Token. If missing, defaults to value stored in environment variable \env{AWS_SESSION_TOKEN}.}
+
+\item{region}{A character string containing the AWS region. If missing, defaults to \dQuote{us-west-1}.}
+
+\item{headers}{A list of request headers for the REST call.}
 
 \item{\dots}{Additional arguments passed to \code{\link[httr]{GET}}.}
 }
