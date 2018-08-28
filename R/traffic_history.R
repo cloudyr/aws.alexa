@@ -36,7 +36,7 @@ traffic_history <- function(url = NULL, range = 31, start = NULL, ...) {
     traffic_payload <- alexa_GET(query, ...)
 
     res  <- bind_rows(lapply(
-                traffic_payload[[1]]$TrafficHistoryResult[[1]][[1]]$HistoricalData,
+                traffic_payload[[1]]$TrafficHistoryResult[[1]]$TrafficHistory$HistoricalData,
                 function(x) 
                 c(date = x$Date,
                   page_views_per_million = x$PageViews$PerMillion,
