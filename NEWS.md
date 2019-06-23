@@ -1,3 +1,8 @@
+# aws.alexa 0.1.7
+
+* fixed a bug in traffic_history. 
+* changed signature to v4
+
 # aws.alexa 0.1.6
 
 * move to xml2 from XML and from plyr to dplyr

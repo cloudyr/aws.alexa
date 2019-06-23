@@ -11,3 +11,4 @@ drat.sh
 ^_pkgdown\.yml$
 CONTRIBUTING.md
 .lintr
+.github
