@@ -12,3 +12,4 @@ drat.sh
 CONTRIBUTING.md
 .lintr
 .github
+^CRAN-RELEASE$
