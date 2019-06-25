@@ -2,6 +2,7 @@
 
 * fixed a bug in traffic_history. 
 * changed signature to v4
+* fixed link to vignette in the man
 
 # aws.alexa 0.1.6
 
