@@ -13,3 +13,4 @@ CONTRIBUTING.md
 .lintr
 .github
 ^CRAN-RELEASE$
+codecov.yml
