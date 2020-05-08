@@ -1,19 +1,19 @@
 #' @title aws.alexa: R Client for the Alexa Web Information Services API
-#' 
+#'
 #' @name aws.alexa-package
 #' @aliases aws.alexa
 #'
 #' @description Find information about domains, including the kind of content that they carry, how popular are they, sites linking to them, among other things.
-#' The package provides access to the Alexa Web Information Service API: \url{http://docs.aws.amazon.com/AlexaWebInfoService/latest/}. 
+#' The package provides access to the Alexa Web Information Service API: \url{http://docs.aws.amazon.com/AlexaWebInfoService/latest/}.
 #'
-#' To learn how to use aws.alexa, see this vignette: \url{https://CRAN.R-project.org/package=aws.alexa/vignettes/overview.html}. 
-#' 
-#' You need to get credentials (Access Key ID and Secret Access Key) to use this application. 
-#' If you haven't already, get these at \url{https://aws.amazon.com/}. 
+#' To learn how to use aws.alexa, see this vignette: \url{https://CRAN.R-project.org/package=aws.alexa/vignettes/overview.html}.
+#'
+#' You need to get credentials (Access Key ID and Secret Access Key) to use this application.
+#' If you haven't already, get these at \url{https://aws.amazon.com/}.
 #' And set these using \code{\link{set_secret_key}}
-#' 
+#'
 #' @importFrom stats setNames
-#' @importFrom httr GET content stop_for_status add_headers
+#' @importFrom httr RETRY content stop_for_status add_headers
 #' @importFrom xml2 read_xml as_list
 #' @importFrom dplyr bind_rows
 #' @importFrom aws.signature signature_v4_auth locate_credentials
@@ -22,25 +22,25 @@
 NULL
 
 
-#' 
+#'
 #' Base POST AND GET functions. Not exported.
 
 #'
 #' GET
-#' 
-#' @param query query list 
+#'
+#' @param query query list
 #' @param key A character string containing an AWS Access Key ID. The default is retrieved from \code{Sys.getenv("AWS_ACCESS_KEY_ID")}.
 #' @param secret A character string containing an AWS Secret Access Key. The default is retrieved from \code{Sys.getenv("AWS_SECRET_ACCESS_KEY")}.
 #' @param verbose A logical indicating whether to be verbose. Default is given by \code{options("verbose")}.
 #' @param session_token Optionally, a character string containing an AWS temporary Session Token. If missing, defaults to value stored in environment variable \env{AWS_SESSION_TOKEN}.
 #' @param region A character string containing the AWS region. If missing, defaults to \dQuote{us-west-1}.
-#' @param headers A list of request headers for the REST call. 
+#' @param headers A list of request headers for the REST call.
 #' @param \dots Additional arguments passed to \code{\link[httr]{GET}}.
 #' @return list
 
-alexa_GET <- function(query, 
+alexa_GET <- function(query,
                       key = Sys.getenv("AWS_ACCESS_KEY_ID"),
-                      secret = Sys.getenv("AWS_SECRET_ACCESS_KEY"), 
+                      secret = Sys.getenv("AWS_SECRET_ACCESS_KEY"),
                       verbose = getOption("verbose", FALSE),
                       session_token = NULL,
                       region = 'us-west-1',
@@ -51,12 +51,12 @@ alexa_GET <- function(query,
     stop("Please set application id and password using set_secret_key(key='key',
                                                             secret='secret')).")
   }
-  
+
   # locate and validate credentials
-  credentials <- locate_credentials(key = key, 
-                                    secret = secret, 
-                                    session_token = session_token, 
-                                    region = region, 
+  credentials <- locate_credentials(key = key,
+                                    secret = secret,
+                                    session_token = session_token,
+                                    region = region,
                                     verbose = verbose)
 
   key <- credentials[["key"]]
@@ -91,10 +91,17 @@ alexa_GET <- function(query,
     headers[["x-amz-security-token"]] <- session_token
   }
   headers[["Authorization"]] <- Sig[["SignatureHeader"]]
-  H <- do.call(add_headers, headers)
-  
-  res <- GET("https://awis.amazonaws.com/api", H, query = query)
-  
+
+  res <- httr::RETRY(
+    verb = "GET"
+    , url = "https://awis.amazonaws.com/api"
+    , httr::add_headers(headers)
+    , query = query
+    , times = 5
+    , terminate_on = c(403, 404)
+    , terminate_on_success = TRUE
+  )
+
   alexa_check(res)
   res <- as_list(read_xml(content(res, as = "text", encoding = "utf-8")))
 
@@ -104,9 +111,9 @@ alexa_GET <- function(query,
 
 #'
 #' Postprocess the results a bit
-#' 
+#'
 #' @param  res result
-#' @return display request ID and Response Status and the first member of the list 
+#' @return display request ID and Response Status and the first member of the list
 
 alexa_PROCESS <- function(res) {
 
@@ -118,7 +125,7 @@ alexa_PROCESS <- function(res) {
 
 #'
 #' Request Response Verification
-#' 
+#'
 #' @param  req request
 #' @return in case of failure, a message
 
