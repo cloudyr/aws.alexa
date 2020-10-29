@@ -4,8 +4,12 @@
 \alias{browse_categories}
 \title{Browse Categories}
 \usage{
-browse_categories(path = NULL, response_group = "Categories",
-  description = TRUE, ...)
+browse_categories(
+  path = NULL,
+  response_group = "Categories",
+  description = TRUE,
+  ...
+)
 }
 \arguments{
 \item{path}{String; Required; valid category path}

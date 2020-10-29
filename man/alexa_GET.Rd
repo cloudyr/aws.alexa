@@ -4,10 +4,16 @@
 \alias{alexa_GET}
 \title{Base POST AND GET functions. Not exported.}
 \usage{
-alexa_GET(query, key = Sys.getenv("AWS_ACCESS_KEY_ID"),
+alexa_GET(
+  query,
+  key = Sys.getenv("AWS_ACCESS_KEY_ID"),
   secret = Sys.getenv("AWS_SECRET_ACCESS_KEY"),
-  verbose = getOption("verbose", FALSE), session_token = NULL,
-  region = "us-west-1", headers = list(), ...)
+  verbose = getOption("verbose", FALSE),
+  session_token = NULL,
+  region = "us-west-1",
+  headers = list(),
+  ...
+)
 }
 \arguments{
 \item{query}{query list}
