@@ -6,22 +6,23 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Client for the Amazon Alexa Web Information Services API • aws.alexa</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
+<script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Client for the Amazon Alexa Web Information Services API">
 <meta property="og:description" content="Use the Amazon Alexa Web Information Services API to 
     find information about domains, including the kind of content 
     that they carry, how popular are they---rank and traffic history, 
     sites linking to them, among other things. See &lt;https://aws.amazon.com/awis/&gt; 
     for more information.">
-<meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<body>
+<body data-spy="scroll" data-target="#toc">
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -42,7 +43,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -74,6 +75,7 @@
 <!--/.navbar -->
 
       
+
       </header><div class="row">
   <div class="contents col-md-9">
 <div id="r-client-for-the-alexa-web-information-services-api" class="section level1">
@@ -82,16 +84,18 @@
 <p>Use the <a href="http://docs.aws.amazon.com/AlexaWebInfoService/latest/">Alexa Web Information Service API</a> to find information about domains, including the kind of content that they carry, how popular are they—rank and traffic history, sites linking to them, among other things.</p>
 <p>To use the package, you will need an AWS account and enter your credentials into R. Your keypair can be generated on the <a href="https://aws.amazon.com/">IAM Management Console</a> under the heading <em>Access Keys</em>. Note that you only have access to your secret key once. After it is generated, you need to save it in a secure location. New keypairs can be generated at any time if yours has been lost, stolen, or forgotten.</p>
 <p>By default, all <strong>cloudyr</strong> packages look for the access key ID and secret access key in environment variables. You can also use this to specify a default region. For example:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Sys.setenv">Sys.setenv</a></span>(<span class="st">"AWS_ACCESS_KEY_ID"</span> =<span class="st"> "mykey"</span>,</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">           <span class="st">"AWS_SECRET_ACCESS_KEY"</span> =<span class="st"> "mysecretkey"</span>,</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">           <span class="st">"AWS_DEFAULT_REGION"</span> =<span class="st"> "us-east-1"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/Sys.setenv.html">Sys.setenv</a></span><span class="op">(</span><span class="st">"AWS_ACCESS_KEY_ID"</span> <span class="op">=</span> <span class="st">"mykey"</span>,
+           <span class="st">"AWS_SECRET_ACCESS_KEY"</span> <span class="op">=</span> <span class="st">"mysecretkey"</span>,
+           <span class="st">"AWS_DEFAULT_REGION"</span> <span class="op">=</span> <span class="st">"us-east-1"</span><span class="op">)</span></pre></div>
 <p>These can alternatively be set on the command line or via an <code>Renviron.site</code> or <code>.Renviron</code> file (<a href="https://cran.r-project.org/package=httr/vignettes/api-packages.html">see here for instructions</a>).</p>
 <div id="code-examples" class="section level2">
 <h2 class="hasAnchor">
 <a href="#code-examples" class="anchor"></a>Code Examples</h2>
 <p>To get acquainted with some of the important functions, see the <a href="vignettes/overview.html">vignette</a>. Or launch the vignette within R:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># Overview of the package</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/vignette">vignette</a></span>(<span class="st">"introduction"</span>, <span class="dt">package =</span> <span class="st">"aws.alexa"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="co"># Overview of the package</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/vignette.html">vignette</a></span><span class="op">(</span><span class="st">"introduction"</span>, package <span class="op">=</span> <span class="st">"aws.alexa"</span><span class="op">)</span></pre></div>
 </div>
 <div id="license" class="section level2">
 <h2 class="hasAnchor">
@@ -101,22 +105,24 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p><a href="https://travis-ci.org/cloudyr/aws.alexa"><img src="https://travis-ci.org/cloudyr/aws.alexa.svg?branch=master" alt="Build Status"></a> <a href="https://ci.appveyor.com/project/cloudyr/aws.alexa"><img src="https://ci.appveyor.com/api/projects/status/yh856e6cv7uucaj2?svg=true" alt="Appveyor Build status"></a> <a href="https://cran.r-project.org/package=aws.alexa"><embed src="https://cran.r-project.org/package=aws.alexa"></embed></a> <a href="http://codecov.io/github/cloudyr/aws.alexa?branch=master"><img src="http://codecov.io/github/cloudyr/aws.alexa/coverage.svg?branch=master" alt="codecov.io"></a></p>
+<p><a href="https://travis-ci.org/cloudyr/aws.alexa"><img src="https://travis-ci.org/cloudyr/aws.alexa.svg?branch=master" alt="Build Status"></a> <a href="https://ci.appveyor.com/project/cloudyr/aws.alexa"><img src="https://ci.appveyor.com/api/projects/status/yh856e6cv7uucaj2?svg=true" alt="Appveyor Build status"></a> <a href="https://cran.r-project.org/package=aws.alexa"><embed src="http://www.r-pkg.org/badges/version/aws.alexa"></embed></a> <embed src="http://cranlogs.r-pkg.org/badges/grand-total/aws.alexa"></embed><a href="http://codecov.io/github/cloudyr/aws.alexa?branch=master"><img src="http://codecov.io/github/cloudyr/aws.alexa/coverage.svg?branch=master" alt="codecov.io"></a></p>
 <p>This package is not yet on CRAN. To install the latest development version you can install from the cloudyr drat repository:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># latest stable version</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"aws.alexa"</span>, <span class="dt">repos =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/options">getOption</a></span>(<span class="st">"repos"</span>), <span class="st">"http://cloudyr.github.io/drat"</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit">
+<span class="co"># latest stable version</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"aws.alexa"</span>, repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/options.html">getOption</a></span><span class="op">(</span><span class="st">"repos"</span><span class="op">)</span>, <span class="st">"http://cloudyr.github.io/drat"</span><span class="op">)</span><span class="op">)</span></pre></div>
 <p>Or, to pull a potentially unstable version directly from GitHub:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="cf">if</span>(<span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(<span class="st">"ghit"</span>)){</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">    <span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"ghit"</span>)</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">}</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">ghit<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"cloudyr/aws.alexa"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit">
+<span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="st">"ghit"</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
+    <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"ghit"</span><span class="op">)</span>
+<span class="op">}</span>
+<span class="fu">ghit</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"cloudyr/aws.alexa"</span><span class="op">)</span></pre></div>
 <hr>
 <p><a href="https://github.com/cloudyr"><img src="http://i.imgur.com/JHS98Y7.png" alt="cloudyr project logo"></a></p>
 </div>
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
 <h2>Links</h2>
 <ul class="list-unstyled">
@@ -130,6 +136,12 @@
 <li>
 <a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a>
 </li>
+</ul>
+</div>
+<div class="community">
+<h2>Community</h2>
+<ul class="list-unstyled">
+<li><a href="CONTRIBUTING.html">Contributing guide</a></li>
 </ul>
 </div>
 <div class="citation">
@@ -149,17 +161,20 @@
   </div>
 </div>
 
+
       <footer><div class="copyright">
   <p>Developed by Gaurav Sood.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
+
       </footer>
 </div>
 
   
+
 
   </body>
 </html>
