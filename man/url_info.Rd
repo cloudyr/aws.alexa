@@ -27,5 +27,5 @@ url_info(url = "http://www.google.com")
 }
 }
 \references{
-\url{http://docs.aws.amazon.com/AlexaWebInfoService/latest/ApiReference_UrlInfoAction.html}
+\url{https://docs.aws.amazon.com/AlexaWebInfoService/latest/ApiReference_UrlInfoAction.html}
 }

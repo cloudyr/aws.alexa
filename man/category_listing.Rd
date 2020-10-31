@@ -19,16 +19,16 @@ category_listing(
 
 \item{sort_by}{sort results by Popularity, Title, or AverageReview}
 
-\item{recursive}{Boolean; Whether to return listings for the current 
-category only, or for the current category plus all subcategories, 
+\item{recursive}{Boolean; Whether to return listings for the current
+category only, or for the current category plus all subcategories,
 Default is TRUE}
 
 \item{start}{index of result at which to start; default is 0}
 
-\item{count}{Number of results to return for this request; 
+\item{count}{Number of results to return for this request;
 Max = 20; Default = 20}
 
-\item{description}{Boolean; Optional; Whether or not to return descriptions 
+\item{description}{Boolean; Optional; Whether or not to return descriptions
 of categories; Default is TRUE}
 
 \item{\dots}{Additional arguments passed to \code{\link{alexa_GET}}.}
@@ -37,7 +37,7 @@ of categories; Default is TRUE}
 data.frame
 }
 \description{
-Uses data from dmoz.org, which is no longer updated. For any given category, 
+Uses data from dmoz.org, which is no longer updated. For any given category,
 it returns a list of site listings contained within that category.
 }
 \examples{
@@ -46,5 +46,5 @@ category_listing(path="Top/Arts")
 }
 }
 \references{
-\url{http://docs.aws.amazon.com/AlexaWebInfoService/latest/ApiReference_CategoryListingsAction.html}
+\url{https://docs.aws.amazon.com/AlexaWebInfoService/latest/ApiReference_CategoryListingsAction.html}
 }

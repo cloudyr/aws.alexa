@@ -9,7 +9,7 @@
 #' @return data.frame with two columns: title (site hostname) and url (specific url)
 #'
 #' @export
-#' @references \url{http://docs.aws.amazon.com/AlexaWebInfoService/latest/ApiReference_SitesLinkingInAction.html}
+#' @references \url{https://docs.aws.amazon.com/AlexaWebInfoService/latest/ApiReference_SitesLinkingInAction.html}
 #' @examples \dontrun{
 #' in_links(url = "google.com")
 #' }

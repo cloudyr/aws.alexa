@@ -1,24 +1,24 @@
 #' Category Listing
 #'
-#' Uses data from dmoz.org, which is no longer updated. For any given category, 
+#' Uses data from dmoz.org, which is no longer updated. For any given category,
 #' it returns a list of site listings contained within that category.
-#' 
+#'
 #' @param path  String; Required; valid category path
-#' @param description Boolean; Optional; Whether or not to return descriptions 
+#' @param description Boolean; Optional; Whether or not to return descriptions
 #' of categories; Default is TRUE
-#' @param sort_by  sort results by Popularity, Title, or AverageReview 
-#' @param recursive Boolean; Whether to return listings for the current 
-#' category only, or for the current category plus all subcategories, 
+#' @param sort_by  sort results by Popularity, Title, or AverageReview
+#' @param recursive Boolean; Whether to return listings for the current
+#' category only, or for the current category plus all subcategories,
 #' Default is TRUE
 #' @param start index of result at which to start; default is 0
-#' @param count Number of results to return for this request; 
+#' @param count Number of results to return for this request;
 #' Max = 20; Default = 20
 #' @param \dots Additional arguments passed to \code{\link{alexa_GET}}.
-#' 
+#'
 #' @return data.frame
-#'  
+#'
 #' @export
-#' @references \url{http://docs.aws.amazon.com/AlexaWebInfoService/latest/ApiReference_CategoryListingsAction.html}
+#' @references \url{https://docs.aws.amazon.com/AlexaWebInfoService/latest/ApiReference_CategoryListingsAction.html}
 #' @examples \dontrun{
 #' category_listing(path="Top/Arts")
 #' }
@@ -50,7 +50,7 @@ category_listing <- function(path = NULL, sort_by = "Popularity",
   cat_list <- alexa_GET(query, ...)
 
   bind_rows(lapply(cat_list[[1]]$CategoryListingsResult$Alexa$CategoryListings$Listings,
-            function(x) 
+            function(x)
             c(data_url = x$DataUrl,
               popularity_rank = x$PopularityRank,
               title = x$Title,

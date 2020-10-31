@@ -16,7 +16,7 @@ traffic_history(url = NULL, range = 31, start = NULL, ...)
 \item{\dots}{Additional arguments passed to \code{\link{alexa_GET}}.}
 }
 \value{
-data.frame with the following columns: \code{site, start, range, 
+data.frame with the following columns: \code{site, start, range,
 date, page_views_per_million, page_views_per_user, rank, reach_per_million}
 }
 \description{
@@ -28,5 +28,5 @@ traffic_history(url = "http://www.google.com", start = "20160505")
 }
 }
 \references{
-\url{http://docs.aws.amazon.com/AlexaWebInfoService/latest/ApiReference_TrafficHistoryAction.html}
+\url{https://docs.aws.amazon.com/AlexaWebInfoService/latest/ApiReference_TrafficHistoryAction.html}
 }

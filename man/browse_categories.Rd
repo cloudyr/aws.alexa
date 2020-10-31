@@ -32,5 +32,5 @@ browse_categories(path="Top/Arts")
 }
 }
 \references{
-\url{http://docs.aws.amazon.com/AlexaWebInfoService/latest/index.html?ApiReference_CategoryBrowseAction.html}
+\url{https://docs.aws.amazon.com/AlexaWebInfoService/latest/index.html?ApiReference_CategoryBrowseAction.html}
 }

@@ -1,16 +1,16 @@
 #' Browse Categories
 #'
 #' Uses data from dmoz.org, which is no longer updated.
-#' 
+#'
 #' @param response_group String; Required; One of the following: Categories, RelatedCategories, LanguageCategories, LetterBars
 #' @param path  String; Required; valid category path
 #' @param description Boolean; Optional; Whether or not to return descriptions of categories; Default is TRUE
 #' @param \dots Additional arguments passed to \code{\link{alexa_GET}}.
-#' 
+#'
 #' @return data.frame with 5 columns: \code{path, title, sub_category_count, total_listing_count, description}
-#'  
+#'
 #' @export
-#' @references \url{http://docs.aws.amazon.com/AlexaWebInfoService/latest/index.html?ApiReference_CategoryBrowseAction.html}
+#' @references \url{https://docs.aws.amazon.com/AlexaWebInfoService/latest/index.html?ApiReference_CategoryBrowseAction.html}
 #' @examples \dontrun{
 #' browse_categories(path="Top/Arts")
 #' }
@@ -39,7 +39,7 @@ browse_categories <- function(path = NULL, response_group = "Categories",
 
   browse_cat <- alexa_GET(query, ...)
 
-  bind_rows(lapply(browse_cat[[1]]$CategoryBrowseResult$Alexa$CategoryBrowse$Categories, function(x) 
+  bind_rows(lapply(browse_cat[[1]]$CategoryBrowseResult$Alexa$CategoryBrowse$Categories, function(x)
             c(path = x$Path,
               title = x$Title,
               sub_category_count = x$SubCategoryCount,

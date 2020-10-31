@@ -1,5 +1,6 @@
 # aws.alexa 0.1.8
 
+* moved http -> https
 * fixes in_links to reflect changes in the object that is returned
 
 # aws.alexa 0.1.7
