@@ -7,7 +7,7 @@
 \title{aws.alexa: R Client for the Alexa Web Information Services API}
 \description{
 Find information about domains, including the kind of content that they carry, how popular are they, sites linking to them, among other things.
-The package provides access to the Alexa Web Information Service API: \url{http://docs.aws.amazon.com/AlexaWebInfoService/latest/}.
+The package provides access to the Alexa Web Information Service API: \url{https://docs.aws.amazon.com/AlexaWebInfoService/latest/}.
 
 To learn how to use aws.alexa, see this vignette: \url{https://CRAN.R-project.org/package=aws.alexa/vignettes/overview.html}.
 
