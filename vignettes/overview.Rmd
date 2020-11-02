@@ -12,7 +12,7 @@ vignette: >
 
 Find information about domains, including the kind of content that they carry, how popular are they, sites linking to them, among other things.
 
-The package provides access to the [Alexa Web Information Service API](http://docs.aws.amazon.com/AlexaWebInfoService/latest/). 
+The package provides access to the [Alexa Web Information Service API](https://docs.aws.amazon.com/AlexaWebInfoService/latest/). 
 
 ### Installation
 
@@ -31,7 +31,7 @@ To get going, get the application id and password from [https://aws.amazon.com/]
 set_secret_key(key="key", secret="secret")
 ```
 
-#### URL Information 
+#### URL Information
 
 ```{r, eval=FALSE, url_info}
 res <- url_info("http://www.google.com")
@@ -48,7 +48,7 @@ return(res)
 ##  online_since
 ## 1  15-Sep-1997
 ```
-#### Traffic History 
+#### Traffic History
 
 ```{r, eval=FALSE, traffic_hist}
 traffic <- traffic_history("http://www.google.com")
@@ -65,7 +65,7 @@ head(traffic)
 ## 6 2016-04-27               111610             17.41    1           440200
 ```
 
-#### Browse Categories 
+#### Browse Categories
 
 ```{r, eval=FALSE, browse_cats}
 browse_categories(path="Top/Arts")
