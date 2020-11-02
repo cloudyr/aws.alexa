@@ -16,7 +16,7 @@ These can alternatively be set on the command line or via an `Renviron.site` or 
 
 ## Code Examples
 
-To get acquainted with some of the important functions, see the [vignette](vignettes/overview.md). Or launch the vignette within R:
+To get acquainted with some of the important functions, launch the vignette within R:
 
 ```r
 # Overview of the package
