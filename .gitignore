@@ -3,3 +3,5 @@
 .RData
 dev
 tests/testthat/aws.alexa_key
+doc
+Meta

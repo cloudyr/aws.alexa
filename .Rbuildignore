@@ -14,3 +14,5 @@ CONTRIBUTING.md
 .github
 ^CRAN-RELEASE$
 codecov.yml
+^doc$
+^Meta$
