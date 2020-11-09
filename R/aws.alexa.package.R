@@ -13,7 +13,7 @@
 #' And set these using \code{\link{set_secret_key}}
 #'
 #' @importFrom stats setNames
-#' @importFrom httr RETRY content stop_for_status add_headers
+#' @importFrom httr GET content stop_for_status add_headers
 #' @importFrom xml2 read_xml as_list
 #' @importFrom dplyr bind_rows
 #' @importFrom aws.signature signature_v4_auth locate_credentials
@@ -92,15 +92,9 @@ alexa_GET <- function(query,
   }
   headers[["Authorization"]] <- Sig[["SignatureHeader"]]
 
-  res <- httr::RETRY(
-    verb = "GET"
-    , url = "https://awis.amazonaws.com/api"
-    , httr::add_headers(headers)
-    , query = query
-    , times = 5
-    , terminate_on = c(403, 404)
-    , terminate_on_success = TRUE
-  )
+  H <- do.call(add_headers, headers)
+
+  res <- httr::GET("https://awis.amazonaws.com/api", H, query = query)
 
   alexa_check(res)
   res <- as_list(read_xml(content(res, as = "text", encoding = "utf-8")))
