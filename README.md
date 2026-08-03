@@ -1,56 +1,40 @@
-# R Client for the Alexa Web Information Services API
+# aws.alexa
 
-Use the [Alexa Web Information Service API](https://docs.aws.amazon.com/AlexaWebInfoService/latest/) to find information about domains, including the kind of content that they carry, how popular are they---rank and traffic history, sites linking to them, among other things.
+## ARCHIVED
 
-To use the package, you will need an AWS account and enter your credentials into R. Your keypair can be generated on the [IAM Management Console](https://aws.amazon.com/) under the heading *Access Keys*. Note that you only have access to your secret key once. After it is generated, you need to save it in a secure location. New keypairs can be generated at any time if yours has been lost, stolen, or forgotten.
+**This package is archived.** The Amazon Alexa Web Information Service (AWIS) was permanently shut down by AWS:
 
-By default, all **cloudyr** packages look for the access key ID and secret access key in environment variables. You can also use this to specify a default region. For example:
+- Alexa.com retired: May 1, 2022
+- AWIS API retired: December 15, 2022
+- [Official AWS End-of-Life Announcement](https://aws.amazon.com/data-exchange/resources/end-of-life-of-alexa-web-information-service/)
 
-```R
-Sys.setenv("AWS_ACCESS_KEY_ID" = "mykey",
-           "AWS_SECRET_ACCESS_KEY" = "mysecretkey",
-           "AWS_DEFAULT_REGION" = "us-east-1")
-```
+The API endpoint (`awis.amazonaws.com`) no longer resolves, and AWS documents no
+replacement service. Every function in this package issues a request against
+that endpoint, so none of them can succeed.
 
-These can alternatively be set on the command line or via an `Renviron.site` or `.Renviron` file ([see here for instructions](https://cran.r-project.org/package=httr/vignettes/api-packages.html)).
+The package remains on CRAN as 0.1.8 (published 2020-11-10) and is left
+installable so existing analyses stay reproducible. It is not maintained and
+will not be fixed, because there is nothing left to call.
 
-## Code Examples
+---
 
-To get acquainted with some of the important functions, launch the vignette within R:
+## Historical Documentation
+
+This package provided an R client for the Alexa Web Information Service API to
+find information about domains, including the kind of content that they carry,
+how popular they were (rank and traffic history), sites linking to them, among
+other things. AWS has taken the API reference down along with the service, so
+there is no longer a documentation URL to link to.
+
+### Code Examples
 
 ```r
-# Overview of the package
 vignette("introduction", package = "aws.alexa")
 ```
 
-## License
+### License
 
 Scripts are released under the [MIT License](https://opensource.org/licenses/MIT).
-
-## Installation
-
-[![Build Status](https://travis-ci.org/cloudyr/aws.alexa.svg?branch=master)](https://travis-ci.org/cloudyr/aws.alexa)
-[![Appveyor Build status](https://ci.appveyor.com/api/projects/status/yh856e6cv7uucaj2?svg=true)](https://ci.appveyor.com/project/cloudyr/aws.alexa)
-[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/aws.alexa)](https://cran.r-project.org/package=aws.alexa)
-![](https://cranlogs.r-pkg.org/badges/grand-total/aws.alexa)
-[![codecov.io](https://codecov.io/github/cloudyr/aws.alexa/coverage.svg?branch=master)](https://codecov.io/github/cloudyr/aws.alexa?branch=master)
-
-This package is not yet on CRAN. To install the latest development version you can install from the cloudyr drat repository:
-
-```R
-# latest stable version
-install.packages("aws.alexa", repos = c(getOption("repos"), "http://cloudyr.github.io/drat"))
-```
-
-Or, to pull a potentially unstable version directly from GitHub:
-
-```R
-if(!require("ghit")){
-    install.packages("ghit")
-}
-ghit::install_github("cloudyr/aws.alexa")
-```
-
 
 ---
 [![cloudyr project logo](http://i.imgur.com/JHS98Y7.png)](https://github.com/cloudyr)

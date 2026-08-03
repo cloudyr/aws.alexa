@@ -1,3 +1,7 @@
+# aws.alexa 0.2.0
+
+* ARCHIVED: Amazon Alexa Web Information Service (AWIS) was permanently shut down by AWS on December 15, 2022. The API endpoint no longer resolves. See https://aws.amazon.com/data-exchange/resources/end-of-life-of-alexa-web-information-service/
+
 # aws.alexa 0.1.8
 
 * moved http -> https
